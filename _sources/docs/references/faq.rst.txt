@@ -1,0 +1,95 @@
+.. _faq:
+
+***
+FAQ
+***
+
+What browsers can I run Galleria in?
+------------------------------------
+
+**The short answer:** IE7+, FF3+, Opera 11+, Chrome 9+, Safar 4+ and Mobile Safari.
+
+**The long answer:** The Galleria core is not very browser dependent. We use regular, linted JavaScript for most of our API and jQuery to even out browser differences in the DOM. However, themes might have different support tables, and sometimes they use progressive enhancement for visual details. All themes made by Galleria supports IE7+, Opera 11, Firefox 3+, Chrome 9+, Safari 4+ and Mobile Safari (iPad, iPhone, Android etc). 
+
+IE6 is not supported by any theme at this point, but Galleria itself supports it so you can patch a theme yourself if you need IE6 compliance (we don’t really see the point though).
+
+
+Will my Theme still work with the new updated Version of Galleria?
+------------------------------------------------------------------
+
+Themes follow the same version numbering system as Galleria and the number represents the Galleria version for which it was last updated. Only bigger updates will eventually need an updated theme. So if your theme is version 1.4.2 (or you are using Galleria 1.4.2) and Galleria now is 1.4.5 your theme will still work. An update to Galleria 1.5 will likely break your theme and you will need an update for the theme too. We will however point out what themes are still compatible or will break when releasing an bigger update.
+
+
+I get a "Fatal Error" when I run Galleria
+-----------------------------------------
+
+Galleria throws errors when something is not right. Some errors are considered critical for Galleria to run properly, and when they occur Galleria stops and throws a "Fatal Error".
+The most common error is that the path to the themes, images or scripts are wrong so please double check those and make sure you have the right permissions set.
+
+Another common issue is that the gallery is hidden when it tries to initialize, then it will fail to extract correct measurements. Make sure the gallery is visible or try the :doc:`../options/wait` option and ``Galleria.init()`` is called when all elements on the page have been loaded (by using jQuery's ``$( document ).ready();`` (see more under :doc:`../references/errors`).
+
+If you are experiencing other problems, you might want to optimize your gallery for better loading process.
+Please read through :doc:`../references/optimize` to get information of the best way to optimize your gallery.
+
+
+The gallery does not work, instead I get a big list of images
+-------------------------------------------------------------
+
+This is probably because Galleria never gets initialized. Please make sure you are:
+
+* targeting the correct element selector when calling Galleria
+* including jQuery in your document
+* including Galleria and not getting any error messages
+* make sure the path to the scripts are correct and you have the right permissions
+* calling Galleria after the images in the HTML source
+
+
+Galleria runs much smoother in Chrome than in IE
+------------------------------------------------
+
+Being JavaScript based, the user experience can vary depending on browser and OS environment. Chrome is generally a really good browser with a fast JavaScript rendering engine, while IE and FF can be slower. We did optimize the product to work at it’s best in all environments, but the result can vary slightly.
+
+
+What mobile strategy does Galleria have?
+----------------------------------------
+
+Ge focus on mobile compatibility in a responsive context, meaning that the Galleria gallery works on mobile devices much the same way as they do on the desktop web. We also optimize our themes so the interaction is more precise when displayed on touch devices.
+
+
+How do i load an external JSON File with image data for Galleria?
+-----------------------------------------------------------------
+
+.. code-block:: javascript
+
+    $.getJSON(jsonURL, function( data ) {
+        Galleria.run( '#galleria', {dataSource: data} );
+    });
+
+
+Galleria does not work with webpack
+-------------------------------------------------------------
+
+If you are using webpack, you will need to use `shimming <https://webpack.js.org/guides/shimming/>`_ as Galleria requires access to the window.location object:
+
+.. code-block:: javascript
+
+    module.exports = {
+        module: {
+            rules: [
+                {
+                    test: /galleria.*.js$/,
+                    loader: "imports-loader?this=>window"
+                }
+            ]
+        }
+    }
+
+
+Srcset and Sizes are not working like expected
+----------------------------------------------
+
+For some Browsers it's important that the img src is included in srcset/sizes, so if you define a srcset - for example for retina / high dpi displays - include the 1x:
+
+.. code-block:: HTML
+
+    <a href="image.jpg" data-srcset="image.jpg 1x, image@2x.jpg 2x"><img src="thumb.jpg" srcset="thumb.jpg 1x, thumb@2x.jpg 2x"></a>

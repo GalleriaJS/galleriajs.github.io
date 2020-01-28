@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Flickr Plugin | Galleria 1.6 documentation – Galleria Documentation</title>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../../_static/favicon.ico">
+    <link rel="stylesheet" href="../../_static/style.min.css" type='text/css' media="all" />
+    
+    
+    
+        <link rel="index" title="Index" href="../../genindex.html"/>
+    
+    
+        <link rel="search" title="Search" href="../../search.html"/>
+    
+    <link rel="top" title="Galleria 1.6 documentation" href="../index.html"/>
+    
+    
+        <link rel="next" title="History Plugin" href="history.html"/>
+    
+    
+        <link rel="prev" title="Azur" href="../themes/azur.html"/>
+    
+
+  
+
+
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/galleria.min.js"></script>
+    
+    
+        <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js" defer></script>
+        <script type="text/javascript" src="../../_static/doctools.js" defer></script>
+        <script type="text/javascript" src="../../_static/language_data.js" defer></script>
+    
+    
+</head>
+
+<body class="docs">
+    <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+      <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+              Galleria
+            </a>
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div class="navbar-menu" id="navMenu">
+            <div class="navbar-end">
+              <a class="navbar-item" href="../../download">
+                Download
+              </a>
+              <a class="navbar-item" href="../../themes">
+                Themes
+              </a>
+              <a class="navbar-item" href="../../docs">
+                Documentation
+              </a>
+              </div>
+          </div>
+      </div>
+    </nav>
+
+
+  <section class="page-header">
+    <div class="container">
+        
+      <a href="../../docs">Documentation</a>
+      
+      » Flickr Plugin
+
+    </div>
+  </section>
+
+
+  
+  <section class="section">
+    <div class="container">
+    
+        <div class="columns is-variable is-8">
+          <div class="column is-three-quarters">
+              <main id="main" class="site-main" role="main">
+              
+  <div class="sphinx">
+      <div class="type">
+        
+  <div class="section" id="flickr-plugin">
+<h1>Flickr Plugin</h1>
+<p>The Galleria Flickr Plugin is a small but useful plugin to allow your gallery to communicate with the Flickr API using some really simple commands. Galleria optimizes the Flickr data behind the scenes to make the Gallery rendering as good as possible. You can also control some aspects of the data conversion, like image sizes, sorting, captions etc.</p>
+<div class="section" id="how-to-install-the-plugin">
+<h2>How to install the plugin</h2>
+<p>Just include it in the head as a script tag, f.ex:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>&lt;script src=&quot;plugins/flickr/galleria.flickr.min.js&quot;&gt;&lt;/script&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples</h2>
+<p><strong>Example on how to search flickr for “galleria” and display the first 30 results</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Galleria</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">&#39;.galleria&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">flickr</span><span class="o">:</span> <span class="s1">&#39;search:galleria&#39;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p><strong>Example on how to fetch a flickr photoset into Galleria and sort using date ascending</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Galleria</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">&#39;.galleria&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">flickr</span><span class="o">:</span> <span class="s1">&#39;set:308783&#39;</span><span class="p">,</span>
+    <span class="nx">flickrOptions</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">sort</span><span class="o">:</span> <span class="s1">&#39;date-posted-asc&#39;</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>When using the flickr plugin as a Galleria option like this, you simply apply a string like “method:argument” to fetch images. The plugin also allows for more advanced usage for tighter integrations.</p>
+<p><strong>Example on how to create a flickr instance and call a method manually</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">flickr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Galleria</span><span class="p">.</span><span class="nx">Flickr</span><span class="p">();</span>
+<span class="nx">flickr</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="s1">&#39;sweden&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">Galleria</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">&#39;.galleria&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">dataSource</span><span class="o">:</span> <span class="nx">data</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p><strong>Example on how to inject Flickr data into an existing gallery and apply options</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">flickr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Galleria</span><span class="p">.</span><span class="nx">Flickr</span><span class="p">();</span>
+<span class="nx">flickr</span><span class="p">.</span><span class="nx">setOptions</span><span class="p">({</span>
+    <span class="nx">max</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="nx">thumbSize</span><span class="o">:</span> <span class="s1">&#39;medium&#39;</span>
+<span class="p">}).</span><span class="nx">search</span><span class="p">(</span><span class="s1">&#39;milan&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">Galleria</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">load</span><span class="p">(</span> <span class="nx">data</span> <span class="p">);</span> <span class="c1">// reloads the first galleria instance with the new data</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods</h2>
+<div class="section" id="search-phrase-callback">
+<h3>.search( phrase[, callback] )</h3>
+<p>Search Flickr for public photos using a search string.</p>
+</div>
+<div class="section" id="tags-phrase-callback">
+<h3>.tags( phrase[, callback] )</h3>
+<p>Search Flickr for public photos using tags.</p>
+</div>
+<div class="section" id="user-username-callback">
+<h3>.user( username[, callback] )</h3>
+<p>Fetch a user’s public photos using the username like displayed in the URL (not user ID).</p>
+</div>
+<div class="section" id="set-photoset-id-callback">
+<h3>.set( photoset_id[, callback] )</h3>
+<p>Get photos from a photoset by ID.
+Note that the ‘sort’ option is not available in this API call, see more here: <a class="reference external" href="http://www.flickr.com/services/api/flickr.photosets.getPhotos.html">http://www.flickr.com/services/api/flickr.photosets.getPhotos.html</a></p>
+<p>The photoset_id can be found at the end of the url when you open your set/album in your browser.  For example: <a class="reference external" href="https://www.flickr.com/photos/1959dr/albums/72157658804179708">https://www.flickr.com/photos/1959dr/albums/72157658804179708</a>. <code class="docutils literal notranslate"><span class="pre">72157658804179708</span></code> is the photoset_id.</p>
+</div>
+<div class="section" id="gallery-gallery-id-callback">
+<h3>.gallery( gallery_id[, callback] )</h3>
+<p>Get photos from a gallery by ID</p>
+</div>
+<div class="section" id="groupsearch-group-callback">
+<h3>.groupsearch( group[, callback] )</h3>
+<p>Search groups and fetch photos from the first group found
+Useful if you know the exact name of a group and want to show the groups photos.</p>
+</div>
+<div class="section" id="group-group-id-callback">
+<h3>.group( group_id[, callback] )</h3>
+<p>Get photos from a group by ID</p>
+</div>
+<div class="section" id="setoptions-options">
+<h3>.setOptions( options )</h3>
+<p>Set flickr options. The options object blends into the defaults.</p>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options</h2>
+<div class="section" id="max">
+<h3>max</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">type: <strong>Number</strong></div>
+<div class="line">default: 30</div>
+</div>
+</div></blockquote>
+<p>Maximum number of photos to return (maximum value 100)</p>
+</div>
+<div class="section" id="imagesize">
+<h3>imageSize</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">type: <strong>String</strong></div>
+<div class="line">default: ‘medium’</div>
+</div>
+</div></blockquote>
+<p>The size to fetch for the main image. The bigger size, the slower downloads and interaction. Use this to match image sizes with your gallery layout.</p>
+<p>Available image sizes:</p>
+<ul class="simple">
+<li><p><strong>small</strong> – square 75x75</p></li>
+<li><p><strong>thumb</strong> – 100 on longest side</p></li>
+<li><p><strong>medium</strong> – 640 on longest side (if available, or it will take the closest match)</p></li>
+<li><p><strong>big</strong> – 1024 on longest side</p></li>
+<li><p><strong>original</strong> – original image, either a jpg, gif or png, depending on source format.</p></li>
+</ul>
+</div>
+<div class="section" id="thumbsize">
+<h3>thumbSize</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">type: <strong>String</strong></div>
+<div class="line">default: ‘thumb’</div>
+</div>
+</div></blockquote>
+<p>The size to fetch for the thumbnail image. The bigger size, the slower downloads and interaction. Use this to match thumbnail sizes with your gallery layout. See imageSize for full list of available sizes.</p>
+</div>
+<div class="section" id="sort">
+<h3>sort</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">type: <strong>String</strong></div>
+<div class="line">default: ‘interestingness-desc’</div>
+</div>
+</div></blockquote>
+<p>Sets in what order the photos will be shown. Available options:</p>
+<ul class="simple">
+<li><p>date-posted-asc</p></li>
+<li><p>date-posted-desc</p></li>
+<li><p>date-taken-asc</p></li>
+<li><p>date-taken-desc</p></li>
+<li><p>interestingness-desc</p></li>
+<li><p>interestingness-asc</p></li>
+<li><p>relevance</p></li>
+</ul>
+</div>
+<div class="section" id="description">
+<h3>description</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">type: <strong>Boolean</strong></div>
+<div class="line">default: false</div>
+</div>
+</div></blockquote>
+<p>The plugin fetches the title per default. If you also wish to fetch the description, set this option to true.</p>
+</div>
+</div>
+</div>
+
+
+      </div>
+  </div>
+
+              </main>
+          </div>
+          <div class="column" role="complementary">
+              
+<section class="widget_toc">
+        <ul>
+<li><a class="reference internal" href="#">Flickr Plugin</a><ul>
+<li><a class="reference internal" href="#how-to-install-the-plugin">How to install the plugin</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#methods">Methods</a><ul>
+<li><a class="reference internal" href="#search-phrase-callback">.search( phrase[, callback] )</a></li>
+<li><a class="reference internal" href="#tags-phrase-callback">.tags( phrase[, callback] )</a></li>
+<li><a class="reference internal" href="#user-username-callback">.user( username[, callback] )</a></li>
+<li><a class="reference internal" href="#set-photoset-id-callback">.set( photoset_id[, callback] )</a></li>
+<li><a class="reference internal" href="#gallery-gallery-id-callback">.gallery( gallery_id[, callback] )</a></li>
+<li><a class="reference internal" href="#groupsearch-group-callback">.groupsearch( group[, callback] )</a></li>
+<li><a class="reference internal" href="#group-group-id-callback">.group( group_id[, callback] )</a></li>
+<li><a class="reference internal" href="#setoptions-options">.setOptions( options )</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#options">Options</a><ul>
+<li><a class="reference internal" href="#max">max</a></li>
+<li><a class="reference internal" href="#imagesize">imageSize</a></li>
+<li><a class="reference internal" href="#thumbsize">thumbSize</a></li>
+<li><a class="reference internal" href="#sort">sort</a></li>
+<li><a class="reference internal" href="#description">description</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+
+<section class="widget_search">
+    
+<div id="searchbox" class="control">
+  <form role="search" class="search-form" action="../../search.html" method="GET">
+    <label for="quick-search-form">
+        <input type="search" id="quick-search-form" class="search-field" placeholder="Search docs" value="" name="q">
+    </label>
+    <button type="submit" class="search-submit">
+        <svg width="16" height="16" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:10;">
+            <g>
+                <circle cx="6.607" cy="6.607" r="5.201" style="fill:none;stroke-width:2px;"></circle>
+                <path d="M10.284,10.284L14.408,14.408" style="fill:none;stroke-width:2px;stroke-linecap:round;"></path>
+            </g>
+        </svg>
+    </button>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+</section>
+
+
+          </div>
+        </div>
+    
+    </div>
+  </section>
+ 
+
+
+<footer class="footer">
+  <div class="content has-text-centered">
+      <ul class="footer-menu">
+          <li><a href="../../download">Download</a></li>
+          <li><a href="../../themes">Themes</a></li>
+          <li><a href="../../docs">Documentation</a></li>
+          <li><a href="https://github.com/galleriajs/galleria">Github</a></li>
+      </ul>
+  </div>
+</footer>
+
+
+<script src="../../_static/main.min.js"></script>
+
+</body>
+</html>

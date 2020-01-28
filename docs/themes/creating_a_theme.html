@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Creating a Theme | Galleria 1.6 documentation – Galleria Documentation</title>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../../_static/favicon.ico">
+    <link rel="stylesheet" href="../../_static/style.min.css" type='text/css' media="all" />
+    
+    
+    
+        <link rel="index" title="Index" href="../../genindex.html"/>
+    
+    
+        <link rel="search" title="Search" href="../../search.html"/>
+    
+    <link rel="top" title="Galleria 1.6 documentation" href="../index.html"/>
+    
+    
+        <link rel="next" title="Classic" href="classic.html"/>
+    
+    
+        <link rel="prev" title="Using themes" href="using_themes.html"/>
+    
+
+  
+
+
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/galleria.min.js"></script>
+    
+    
+        <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js" defer></script>
+        <script type="text/javascript" src="../../_static/doctools.js" defer></script>
+        <script type="text/javascript" src="../../_static/language_data.js" defer></script>
+    
+    
+</head>
+
+<body class="docs">
+    <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+      <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+              Galleria
+            </a>
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div class="navbar-menu" id="navMenu">
+            <div class="navbar-end">
+              <a class="navbar-item" href="../../download">
+                Download
+              </a>
+              <a class="navbar-item" href="../../themes">
+                Themes
+              </a>
+              <a class="navbar-item" href="../../docs">
+                Documentation
+              </a>
+              </div>
+          </div>
+      </div>
+    </nav>
+
+
+  <section class="page-header">
+    <div class="container">
+        
+      <a href="../../docs">Documentation</a>
+      
+      » Creating a Theme
+
+    </div>
+  </section>
+
+
+  
+  <section class="section">
+    <div class="container">
+    
+        <div class="columns is-variable is-8">
+          <div class="column is-three-quarters">
+              <main id="main" class="site-main" role="main">
+              
+  <div class="sphinx">
+      <div class="type">
+        
+  <div class="section" id="creating-a-theme">
+<h1>Creating a Theme</h1>
+<p>If you’d like to create your own re-useable theme, Galleria provides a codex
+for that too. Using the static function <code class="docutils literal notranslate"><span class="pre">Galleria.addTheme(</span> <span class="pre">[theme</span> <span class="pre">object]</span>
+<span class="pre">)</span></code>, you can add custom theme functionality and css to create your own custom
+theme. A good way to start is to have a look at some of the free themes in the
+Galleria package and see how it’s done.</p>
+<div class="section" id="creata-a-simple-theme-step-by-step">
+<h2>Creata a simple theme step by step</h2>
+<ol class="arabic simple">
+<li><p>create a directory in your galleria theme directory called ‘my_theme’</p></li>
+<li><p>create a new css file called galleria.my_theme.css. Save in the folder you
+just created.</p></li>
+<li><p>create a new js file called galleria.my_theme.js and save in the same
+directory. Add the following example code:</p></li>
+</ol>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Galleria</span><span class="p">.</span><span class="nx">addTheme</span><span class="p">({</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;my theme&#39;</span><span class="p">,</span>
+    <span class="nx">author</span><span class="o">:</span> <span class="s1">&#39;John Doe, http://example.com&#39;</span><span class="p">,</span>
+    <span class="nx">version</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nx">css</span><span class="o">:</span> <span class="s1">&#39;galleria.my_theme.css&#39;</span><span class="p">,</span>
+    <span class="nx">defaults</span><span class="o">:</span> <span class="p">{</span>
+        <span class="c1">// add your own default options here</span>
+        <span class="nx">transition</span><span class="o">:</span> <span class="s1">&#39;fade&#39;</span><span class="p">,</span>
+        <span class="nx">imagecrop</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+
+        <span class="c1">// custom theme-specific options should begin with underscore:</span>
+        <span class="nx">_my_color</span><span class="o">:</span> <span class="s1">&#39;yellow&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="cm">/*</span>
+<span class="cm">        The init function get&#39;s called when galleria is ready.</span>
+<span class="cm">        You have access to all public methods and events in here</span>
+<span class="cm">        this = gallery instance</span>
+<span class="cm">        options = gallery options (including custom options)</span>
+<span class="cm">        */</span>
+
+        <span class="c1">// set the container&#39;s background to the theme-specific _my_color option:</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;container&#39;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;background-color&#39;</span><span class="p">,</span> <span class="nx">options</span><span class="p">.</span><span class="nx">_my_color</span><span class="p">);</span>
+
+        <span class="c1">// bind a loader animation:</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;loadstart&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">e</span><span class="p">.</span><span class="nx">cached</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;loader&#39;</span><span class="p">).</span><span class="nx">show</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;loadfinish&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;loader&#39;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Go back to the galleria.my_theme.css file and add some styles</p></li>
+<li><p>Add images and modify the code until you are satisfied with the result.
+Feel free to use any free Galleria theme as a starting point.</p></li>
+</ol>
+<p>After the theme is created you can use the theme when calling Galleria:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Galleria</span><span class="p">.</span><span class="nx">loadTheme</span><span class="p">(</span><span class="s1">&#39;/path/to/themes/galleria.my_theme.js&#39;</span><span class="p">);</span>
+<span class="nx">Galleria</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">&#39;.galleria&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-theme-object-explained">
+<h2>The theme object explained:</h2>
+<ul class="simple">
+<li><p><strong>name</strong> (String) is the name of the theme, f.ex ‘classic’</p></li>
+<li><p><strong>author</strong> (String) is the name of the author</p></li>
+<li><p><strong>version</strong> (Number) is the current theme version</p></li>
+<li><p><strong>css</strong> (String) is the CSS file used. The CSS file must be in the same
+folder as the theme js file</p></li>
+<li><p><strong>defaults</strong> (Object) sets the default and/or custom options for the theme.</p></li>
+<li><p><strong>init</strong> (Function) contains all theme-specific logic. The function takes one
+argument, options, and the this keyword is the gallery instance. The function
+gets called after the data is fetched and the gallery is fully prepared to
+run.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">init</span></code> function in your theme has access to a number of helpers,
+functions and events that you can use to customize your theme logic.</p>
+</div>
+</div>
+
+
+      </div>
+  </div>
+
+              </main>
+          </div>
+          <div class="column" role="complementary">
+              
+<section class="widget_toc">
+        <ul>
+<li><a class="reference internal" href="#">Creating a Theme</a><ul>
+<li><a class="reference internal" href="#creata-a-simple-theme-step-by-step">Creata a simple theme step by step</a></li>
+<li><a class="reference internal" href="#the-theme-object-explained">The theme object explained:</a></li>
+</ul>
+</li>
+</ul>
+
+</section>
+
+<section class="widget_search">
+    
+<div id="searchbox" class="control">
+  <form role="search" class="search-form" action="../../search.html" method="GET">
+    <label for="quick-search-form">
+        <input type="search" id="quick-search-form" class="search-field" placeholder="Search docs" value="" name="q">
+    </label>
+    <button type="submit" class="search-submit">
+        <svg width="16" height="16" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:10;">
+            <g>
+                <circle cx="6.607" cy="6.607" r="5.201" style="fill:none;stroke-width:2px;"></circle>
+                <path d="M10.284,10.284L14.408,14.408" style="fill:none;stroke-width:2px;stroke-linecap:round;"></path>
+            </g>
+        </svg>
+    </button>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+</section>
+
+
+          </div>
+        </div>
+    
+    </div>
+  </section>
+ 
+
+
+<footer class="footer">
+  <div class="content has-text-centered">
+      <ul class="footer-menu">
+          <li><a href="../../download">Download</a></li>
+          <li><a href="../../themes">Themes</a></li>
+          <li><a href="../../docs">Documentation</a></li>
+          <li><a href="https://github.com/galleriajs/galleria">Github</a></li>
+      </ul>
+  </div>
+</footer>
+
+
+<script src="../../_static/main.min.js"></script>
+
+</body>
+</html>

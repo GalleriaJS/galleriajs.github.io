@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>API Methods | Galleria 1.6 documentation – Galleria Documentation</title>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../../_static/favicon.ico">
+    <link rel="stylesheet" href="../../_static/style.min.css" type='text/css' media="all" />
+    
+    
+    
+        <link rel="index" title="Index" href="../../genindex.html"/>
+    
+    
+        <link rel="search" title="Search" href="../../search.html"/>
+    
+    <link rel="top" title="Galleria 1.6 documentation" href="../index.html"/>
+    
+    
+        <link rel="next" title="Events" href="events.html"/>
+    
+    
+        <link rel="prev" title="youtube" href="../options/youtube.html"/>
+    
+
+  
+
+
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/galleria.min.js"></script>
+    
+    
+        <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js" defer></script>
+        <script type="text/javascript" src="../../_static/doctools.js" defer></script>
+        <script type="text/javascript" src="../../_static/language_data.js" defer></script>
+    
+    
+</head>
+
+<body class="docs">
+    <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+      <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+              Galleria
+            </a>
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div class="navbar-menu" id="navMenu">
+            <div class="navbar-end">
+              <a class="navbar-item" href="../../download">
+                Download
+              </a>
+              <a class="navbar-item" href="../../themes">
+                Themes
+              </a>
+              <a class="navbar-item" href="../../docs">
+                Documentation
+              </a>
+              </div>
+          </div>
+      </div>
+    </nav>
+
+
+  <section class="page-header">
+    <div class="container">
+        
+      <a href="../../docs">Documentation</a>
+      
+      » API Methods
+
+    </div>
+  </section>
+
+
+  
+  <section class="section">
+    <div class="container">
+    
+        <div class="columns is-variable is-8">
+          <div class="column is-three-quarters">
+              <main id="main" class="site-main" role="main">
+              
+  <div class="sphinx">
+      <div class="type">
+        
+  <div class="section" id="api-methods">
+<h1>API Methods</h1>
+<div class="section" id="using-the-api">
+<h2>Using the API</h2>
+<p>The Galleria methods are exposed in the instance. You have access to all methods listed here in the <a class="reference internal" href="../options/extend.html"><span class="doc">extend( [ options ] )</span></a> option or inside the <code class="docutils literal notranslate"><span class="pre">Galleria.ready</span></code> function.
+Read more about how to use the Galleria instance in <a class="reference internal" href="../references/extending.html"><span class="doc">Extending Galleria</span></a></p>
+</div>
+<div class="section" id="slideshow">
+<h2>Slideshow</h2>
+<div class="section" id="play-interval">
+<h3>.play( interval )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Starts the automatic slideshow and sets the interval length in milliseconds. If
+no interval is given, default (5000 = 5 seconds) is used.</p>
+</div>
+<div class="section" id="pause">
+<h3>.pause()</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Stops the slideshow and resets the interval.</p>
+</div>
+<div class="section" id="playtoggle">
+<h3>.playToggle()</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Stops the slideshow if currently playing, otherwise it start the slideshow.</p>
+</div>
+<div class="section" id="setplaytime-milliseconds">
+<h3>.setPlaytime( milliseconds )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Sets the interval of the autoplay slideshow at run-time.</p>
+</div>
+<div class="section" id="next">
+<h3>.next()</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Displays the next image in line, or the first if you are at the last image.</p>
+</div>
+<div class="section" id="prev">
+<h3>.prev()</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Displays the previous image in line, or the last if you are at the first image.</p>
+</div>
+<div class="section" id="show-index">
+<h3>.show( index )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Shows the image specified as index. You can call this method anytime and the
+image will be placed in a transition queue.</p>
+</div>
+</div>
+<div class="section" id="display">
+<h2>Display</h2>
+<div class="section" id="resize-measures">
+<h3>.resize( [measures] )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>This will resize the entire gallery. ‘measures’ is an object with “width” and
+“height” that you can pass to force a certain size. If no width or height is
+passed, the gallery will extract new measures from the CSS.</p>
+</div>
+<div class="section" id="enterfullscreen-callback">
+<h3>.enterFullscreen( [callback] )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>This will set the gallery in fullscreen mode. It will temporary manipulate some
+document styles and blow up the gallery to cover the browser screen. Note that
+it will only fill the browser window, not the client screen (javascript can’t
+do that).</p>
+<p>The callback is called when the fullscreen mode has initialized (it takes
+around 40 ms before everything is rescaled)</p>
+</div>
+<div class="section" id="exitfullscreen-callback">
+<h3>.exitFullscreen( [callback] )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>This will exit fullscreen mode and revert the gallery to it’s normal size and
+also revert the document styles. The callback is called when the fullscreen
+mode is turned off (it takes around 40 ms before everything is rescaled)</p>
+</div>
+<div class="section" id="togglefullscreen-callback">
+<h3>.toggleFullscreen( [callback] )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Toggles fullscreen mode.</p>
+</div>
+<div class="section" id="openlightbox-index">
+<h3>.openLightbox( [index] )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>This will pop out a lightbox window of the image. You can specify an index if
+you want to display a different image than the currently active. The lightbox
+window is fairly simple and pre-styled (no CSS or images needed). You can
+define some values like the overlay opacity as a galleria option.</p>
+</div>
+<div class="section" id="closelightbox">
+<h3>.closeLightbox()</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>This will close the lightbox window.</p>
+</div>
+<div class="section" id="addidlestate-elem-styles">
+<h3>.addIdleState(elem, styles)</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>This will add an “idle” state of any element. The idle state activates when no
+user interaction has been made for x amount of milliseconds. You can modify the
+idle timeout using the <a class="reference internal" href="../options/idleTime.html"><span class="doc">idleTime</span></a> option (default is 3000 milliseconds). Styles
+is an object of CSS styles you wish to animate the element to when entering
+idle state. Example:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// will fade out the thumbnails when entering idle mode</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">addIdleState</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;thumbnails&#39;</span><span class="p">),</span> <span class="p">{</span>
+    <span class="nx">opacity</span><span class="o">:</span> <span class="mi">0</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="removeidlestate-elem">
+<h3>.removeIdleState(elem)</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Removes an elements idle state set using the <code class="docutils literal notranslate"><span class="pre">addIdleState</span></code> method.</p>
+</div>
+<div class="section" id="addpan-image">
+<h3>.addPan( [image] )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Manually applies a panning effect that revealse cropped areas on mousemove. If
+no image specified, it will assume the currently displayed image. You can set
+this to automatically add pan on each image using the <code class="docutils literal notranslate"><span class="pre">image_pan</span></code> option.</p>
+</div>
+<div class="section" id="removepan">
+<h3>.removePan()</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Removes all panning effects set by <code class="docutils literal notranslate"><span class="pre">addPan()</span></code>.</p>
+</div>
+<div class="section" id="refreshimage">
+<h3>.refreshImage()</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Refreshes the image scale &amp; position. Useful if you f.ex. change imageCrop options at run time and need to reposition the image accordingly.</p>
+</div>
+</div>
+<div class="section" id="manipulation">
+<h2>Manipulation</h2>
+<div class="section" id="load-data">
+<h3>.load( data )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Loads new data into the gallery. The data should be structured as an Array and follow the same data patterns as the original JSON data</p>
+</div>
+<div class="section" id="splice-index-howmany-element1-elementn">
+<h3>.splice( index, howMany[, element1[, …[, elementN]]] )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Adds and/or removes images from the gallery. This method works just like the JavaScript <code class="docutils literal notranslate"><span class="pre">Array.splice</span></code> method as explained here:</p>
+<p><a class="reference external" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/splice">https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/splice</a></p>
+<p>Examples:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="p">);</span> <span class="c1">// removes two images after the first</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="p">);</span> <span class="c1">// removes the last two images</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="push-element1-elementn">
+<h3>.push( element1, …, elementN )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Adds and/or removes images from the gallery. This method works just like the JavaScript <code class="docutils literal notranslate"><span class="pre">Array.push</span></code> method as explained here:</p>
+<p><a class="reference external" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/push">https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/push</a></p>
+<p>Examples:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span> <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;image1.jpg&#39;</span> <span class="p">});</span> <span class="c1">// adds an image to the gallery</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="addelement-elemid">
+<h3>.addElement( elemID )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Creates a new element into the Galleria DOM and becomes instantly available
+using <code class="docutils literal notranslate"><span class="pre">.$()</span></code> or <code class="docutils literal notranslate"><span class="pre">.get()</span></code></p>
+</div>
+<div class="section" id="appendchild-parentid-childid">
+<h3>.appendChild( parentID, childID )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Appends an element to another in the Galleria DOM structure using element IDs.
+Example:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// creates a new element with the id &#39;mystuff&#39;:</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">addElement</span><span class="p">(</span><span class="s1">&#39;mystuff&#39;</span><span class="p">);</span>
+
+<span class="c1">// appends the element to the container</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="s1">&#39;container&#39;</span><span class="p">,</span><span class="s1">&#39;mystuff&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="prependchild-parentid-childid">
+<h3>.prependChild( parentID, childID )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Prepends an element to another in the Galleria DOM structure using element IDs.
+Example:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// creates a new element with the id &#39;mystuff&#39;:</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">addElement</span><span class="p">(</span><span class="s1">&#39;mystuff&#39;</span><span class="p">);</span>
+
+<span class="c1">// appends the element to the stage</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">prependChild</span><span class="p">(</span><span class="s1">&#39;stage&#39;</span><span class="p">,</span><span class="s1">&#39;mystuff&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setoptions-key-value">
+<h3>.setOptions( key, value )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Manipulates the gallery options at run time.</p>
+<p>Example:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">setOptions</span><span class="p">(</span> <span class="s1">&#39;transition&#39;</span><span class="p">,</span> <span class="s1">&#39;slide&#39;</span> <span class="p">);</span>
+</pre></div>
+</div>
+<p>You can also manipulate several options by applying an object. This example demonstrates how to alter the image positions and then
+use refreshImage to apply the new options to the active image:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">setOptions</span><span class="p">({</span>
+    <span class="nx">imagePosition</span><span class="o">:</span> <span class="s1">&#39;top left&#39;</span><span class="p">,</span>
+    <span class="nx">imageCrop</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">}).</span><span class="nx">refreshImage</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setcounter-index">
+<h3>.setCounter( [index] )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Sets the counter to the index or the active image if no index is specified.</p>
+</div>
+<div class="section" id="setinfo-index">
+<h3>.setInfo( [index] )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Sets the captions to display data taken from the index or the active image if
+no index is specified. Example:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;thumbnail&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">thumbTarget</span><span class="p">).</span><span class="nx">hover</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">proxy</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="nx">setInfo</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">thumbOrder</span><span class="p">);</span> <span class="c1">// sets the caption to display data from the hovered image</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">setCounter</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">index</span><span class="p">);</span> <span class="c1">// sets the counter to display the index of the hovered image</span>
+
+    <span class="p">},</span> <span class="k">this</span><span class="p">.</span><span class="nx">proxy</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="nx">setInfo</span><span class="p">();</span> <span class="c1">// reset the caption to display the currently active data</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">setCounter</span><span class="p">();</span> <span class="c1">// reset the caption to display the currently active data</span>
+
+    <span class="p">}));</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="retrieval">
+<h2>Retrieval</h2>
+<div class="section" id="elemids">
+<h3>.$( elemIDs )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>jQuery</strong></div>
+</div>
+</div></blockquote>
+<p>Fetches elements from the Galleria DOM structure and returns a jQuery object
+with all elements, very useful for theme development. You can specify a single
+element ID or multiple elements in a comma-separated list. Example:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;stage,thumbnails&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">Galleria</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;stage or thumbnails clicked&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-elemid">
+<h3>.get( elemID )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>HTML Element</strong></div>
+</div>
+</div></blockquote>
+<p>Fetches a single element from the Galleria DOM structure and returns it. Example:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span> <span class="p">);</span> <span class="c1">// the HTML element</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span> <span class="p">);</span> <span class="c1">// the same element wrapped in jQuery</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getthemename">
+<h3>.getThemeName()</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>String</strong></div>
+</div>
+</div></blockquote>
+<p>Returns the theme name used for this gallery. Example:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">getThemeName</span><span class="p">()</span> <span class="p">);</span> <span class="c1">// the theme name as string</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getnext-base">
+<h3>.getNext( [base] )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Number</strong></div>
+</div>
+</div></blockquote>
+<p>Helper method for getting the next image index in line. Returns the first if
+last has exceeded. <code class="docutils literal notranslate"><span class="pre">base</span></code> is the index you want to start from, if not
+specified it grabs the active image index.</p>
+</div>
+<div class="section" id="getprev-base">
+<h3>.getPrev( [base] )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Number</strong></div>
+</div>
+</div></blockquote>
+<p>Helper method for getting the previous image index in line. Returns the last
+index if base is zero. <code class="docutils literal notranslate"><span class="pre">base</span></code> is the index you want to start from, if not
+specified it grabs the active image index.</p>
+</div>
+<div class="section" id="getactiveimage">
+<h3>.getActiveImage()</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>IMG Element</strong></div>
+</div>
+</div></blockquote>
+<p>Method for grabbing the currently displayed image.</p>
+</div>
+<div class="section" id="getdata-index">
+<h3>.getData( [index] )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Object</strong></div>
+</div>
+</div></blockquote>
+<p>Returns the data object for the image. You can specify index or it will assume
+the currently active image.</p>
+</div>
+<div class="section" id="getdatalength">
+<h3>.getDataLength()</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Number</strong></div>
+</div>
+</div></blockquote>
+<p>Returns the number of slides in the gallery.</p>
+</div>
+<div class="section" id="getindex">
+<h3>.getIndex()</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Number</strong></div>
+</div>
+</div></blockquote>
+<p>Returns the current index.</p>
+</div>
+<div class="section" id="mouseposition-event">
+<h3>.mousePosition( event )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Object</strong></div>
+</div>
+</div></blockquote>
+<p>Helper method for getting the right <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> values from a mouse event,
+relative to the galleria position. <code class="docutils literal notranslate"><span class="pre">event</span></code> is a jQuery mouseevent object.</p>
+<dl class="simple">
+<dt>$(document).bind(‘mousemove’, this.proxy(function(e) {</dt><dd><p>var pos = this.mousePosition(e);
+Galleria.log(pos.x, pos.y);</p>
+</dd>
+</dl>
+<p>}));</p>
+</div>
+<div class="section" id="hasinfo-index">
+<h3>.hasInfo( [index] )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Boolean</strong></div>
+</div>
+</div></blockquote>
+<p>Helper method for finding out if a gallery image has info (captions). You can
+specify index or it will assume the currently active image. Example:</p>
+</div>
+</div>
+<div class="section" id="miscellaneous">
+<h2>Miscellaneous</h2>
+<div class="section" id="bind-type-callback">
+<h3>.bind( type, callback )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Binds a callback function to a Galleria event. The callback function contains
+the event object as the only argument. Example:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">Galleria</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="c1">// the galleria instance</span>
+    <span class="nx">Galleria</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">imageTarget</span><span class="p">);</span> <span class="c1">// the displayed Image element</span>
+<span class="p">});</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;fullscreen_enter&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">Galleria</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Fullscreen mode!&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="unbind-type">
+<h3>.unbind( type )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Removes all functions attached to a Galleria event.</p>
+</div>
+<div class="section" id="trigger-type">
+<h3>.trigger( type )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Manually triggers a Galleria event.</p>
+</div>
+<div class="section" id="lazyload-array-complete">
+<h3>.lazyLoad( array, complete )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>If you set <code class="docutils literal notranslate"><span class="pre">thumbnails:</span> <span class="pre">lazy</span></code> you can use this method to lazyLoad thumbnails at any time.
+Just pass an array of indexes to make the gallery load the thumbnails. Example:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">lazyLoad</span><span class="p">(</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">Galleria</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Thumbnails 0 and 1 are loaded&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="lazyloadchunks-size-delay">
+<h3>.lazyLoadChunks( size, delay )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>If you set <code class="docutils literal notranslate"><span class="pre">thumbnails:</span> <span class="pre">lazy</span></code> you can use this method to set up Galleria to lazy load all thumbnails in chunks.
+F.ex if you have 30 images, and want to load the first 10 thumbnails first, then the next 10 and so on, you can do:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">lazyLoadChunks</span><span class="p">(</span> <span class="mi">10</span> <span class="p">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">delay</span></code> is an optional parameter that adds a delay in milliseconds between the loads.</p>
+</div>
+<div class="section" id="destroy">
+<h3>.destroy()</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Wipes out the galleria gallery and restores the original content.</p>
+</div>
+<div class="section" id="attachkeyboard-map">
+<h3>.attachKeyboard( map )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>This helper method attaches keyboard events to Galleria. The map object
+contains a map of functions to execute when a certain keyCode is pressed.</p>
+<p>You can use a number of helper keywords to identify common keys. The keywords
+are <strong>up</strong>, <strong>down</strong>, <strong>left</strong>, <strong>right</strong>, <strong>return</strong>, <strong>escape</strong> and
+<strong>backspace</strong>.</p>
+<p>If you call this method again with the same key, you will simply override the
+last function. Example attaching some keyboard action to galleria:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">attachKeyboard</span><span class="p">({</span>
+    <span class="nx">left</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">prev</span><span class="p">,</span> <span class="c1">// applies the native prev() function</span>
+    <span class="nx">right</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">next</span><span class="p">,</span>
+    <span class="nx">up</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// custom up action</span>
+        <span class="nx">Galleria</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;up pressed&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="mi">13</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// start playing when return (keyCode 13) is pressed:</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">play</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">attachKeyboard</span><span class="p">({</span>
+    <span class="nx">left</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">openLightbox</span> <span class="c1">// will override the previously defined prev()</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="detachkeyboard">
+<h3>.detachKeyboard()</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns <strong>Galleria</strong></div>
+</div>
+</div></blockquote>
+<p>Removes all keyboard events attached using <code class="docutils literal notranslate"><span class="pre">.attachKeyboard()</span></code>. Useful when
+building lightboxes or overlays.</p>
+</div>
+</div>
+</div>
+
+
+      </div>
+  </div>
+
+              </main>
+          </div>
+          <div class="column" role="complementary">
+              
+<section class="widget_toc">
+        <ul>
+<li><a class="reference internal" href="#">API Methods</a><ul>
+<li><a class="reference internal" href="#using-the-api">Using the API</a></li>
+<li><a class="reference internal" href="#slideshow">Slideshow</a><ul>
+<li><a class="reference internal" href="#play-interval">.play( interval )</a></li>
+<li><a class="reference internal" href="#pause">.pause()</a></li>
+<li><a class="reference internal" href="#playtoggle">.playToggle()</a></li>
+<li><a class="reference internal" href="#setplaytime-milliseconds">.setPlaytime( milliseconds )</a></li>
+<li><a class="reference internal" href="#next">.next()</a></li>
+<li><a class="reference internal" href="#prev">.prev()</a></li>
+<li><a class="reference internal" href="#show-index">.show( index )</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#display">Display</a><ul>
+<li><a class="reference internal" href="#resize-measures">.resize( [measures] )</a></li>
+<li><a class="reference internal" href="#enterfullscreen-callback">.enterFullscreen( [callback] )</a></li>
+<li><a class="reference internal" href="#exitfullscreen-callback">.exitFullscreen( [callback] )</a></li>
+<li><a class="reference internal" href="#togglefullscreen-callback">.toggleFullscreen( [callback] )</a></li>
+<li><a class="reference internal" href="#openlightbox-index">.openLightbox( [index] )</a></li>
+<li><a class="reference internal" href="#closelightbox">.closeLightbox()</a></li>
+<li><a class="reference internal" href="#addidlestate-elem-styles">.addIdleState(elem, styles)</a></li>
+<li><a class="reference internal" href="#removeidlestate-elem">.removeIdleState(elem)</a></li>
+<li><a class="reference internal" href="#addpan-image">.addPan( [image] )</a></li>
+<li><a class="reference internal" href="#removepan">.removePan()</a></li>
+<li><a class="reference internal" href="#refreshimage">.refreshImage()</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#manipulation">Manipulation</a><ul>
+<li><a class="reference internal" href="#load-data">.load( data )</a></li>
+<li><a class="reference internal" href="#splice-index-howmany-element1-elementn">.splice( index, howMany[, element1[, …[, elementN]]] )</a></li>
+<li><a class="reference internal" href="#push-element1-elementn">.push( element1, …, elementN )</a></li>
+<li><a class="reference internal" href="#addelement-elemid">.addElement( elemID )</a></li>
+<li><a class="reference internal" href="#appendchild-parentid-childid">.appendChild( parentID, childID )</a></li>
+<li><a class="reference internal" href="#prependchild-parentid-childid">.prependChild( parentID, childID )</a></li>
+<li><a class="reference internal" href="#setoptions-key-value">.setOptions( key, value )</a></li>
+<li><a class="reference internal" href="#setcounter-index">.setCounter( [index] )</a></li>
+<li><a class="reference internal" href="#setinfo-index">.setInfo( [index] )</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#retrieval">Retrieval</a><ul>
+<li><a class="reference internal" href="#elemids">.$( elemIDs )</a></li>
+<li><a class="reference internal" href="#get-elemid">.get( elemID )</a></li>
+<li><a class="reference internal" href="#getthemename">.getThemeName()</a></li>
+<li><a class="reference internal" href="#getnext-base">.getNext( [base] )</a></li>
+<li><a class="reference internal" href="#getprev-base">.getPrev( [base] )</a></li>
+<li><a class="reference internal" href="#getactiveimage">.getActiveImage()</a></li>
+<li><a class="reference internal" href="#getdata-index">.getData( [index] )</a></li>
+<li><a class="reference internal" href="#getdatalength">.getDataLength()</a></li>
+<li><a class="reference internal" href="#getindex">.getIndex()</a></li>
+<li><a class="reference internal" href="#mouseposition-event">.mousePosition( event )</a></li>
+<li><a class="reference internal" href="#hasinfo-index">.hasInfo( [index] )</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#miscellaneous">Miscellaneous</a><ul>
+<li><a class="reference internal" href="#bind-type-callback">.bind( type, callback )</a></li>
+<li><a class="reference internal" href="#unbind-type">.unbind( type )</a></li>
+<li><a class="reference internal" href="#trigger-type">.trigger( type )</a></li>
+<li><a class="reference internal" href="#lazyload-array-complete">.lazyLoad( array, complete )</a></li>
+<li><a class="reference internal" href="#lazyloadchunks-size-delay">.lazyLoadChunks( size, delay )</a></li>
+<li><a class="reference internal" href="#destroy">.destroy()</a></li>
+<li><a class="reference internal" href="#attachkeyboard-map">.attachKeyboard( map )</a></li>
+<li><a class="reference internal" href="#detachkeyboard">.detachKeyboard()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+
+<section class="widget_search">
+    
+<div id="searchbox" class="control">
+  <form role="search" class="search-form" action="../../search.html" method="GET">
+    <label for="quick-search-form">
+        <input type="search" id="quick-search-form" class="search-field" placeholder="Search docs" value="" name="q">
+    </label>
+    <button type="submit" class="search-submit">
+        <svg width="16" height="16" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:10;">
+            <g>
+                <circle cx="6.607" cy="6.607" r="5.201" style="fill:none;stroke-width:2px;"></circle>
+                <path d="M10.284,10.284L14.408,14.408" style="fill:none;stroke-width:2px;stroke-linecap:round;"></path>
+            </g>
+        </svg>
+    </button>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+</section>
+
+
+          </div>
+        </div>
+    
+    </div>
+  </section>
+ 
+
+
+<footer class="footer">
+  <div class="content has-text-centered">
+      <ul class="footer-menu">
+          <li><a href="../../download">Download</a></li>
+          <li><a href="../../themes">Themes</a></li>
+          <li><a href="../../docs">Documentation</a></li>
+          <li><a href="https://github.com/galleriajs/galleria">Github</a></li>
+      </ul>
+  </div>
+</footer>
+
+
+<script src="../../_static/main.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Galleria in Tumblr | Galleria 1.6 documentation – Galleria Documentation</title>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../../_static/favicon.ico">
+    <link rel="stylesheet" href="../../_static/style.min.css" type='text/css' media="all" />
+    
+    
+    
+        <link rel="index" title="Index" href="../../genindex.html"/>
+    
+    
+        <link rel="search" title="Search" href="../../search.html"/>
+    
+    <link rel="top" title="Galleria 1.6 documentation" href="../index.html"/>
+    
+    
+        <link rel="next" title="Galleria in WordPress" href="wordpress.html"/>
+    
+    
+        <link rel="prev" title="History Plugin" href="../plugins/history.html"/>
+    
+
+  
+
+
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/galleria.min.js"></script>
+    
+    
+        <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js" defer></script>
+        <script type="text/javascript" src="../../_static/doctools.js" defer></script>
+        <script type="text/javascript" src="../../_static/language_data.js" defer></script>
+    
+    
+</head>
+
+<body class="docs">
+    <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+      <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+              Galleria
+            </a>
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div class="navbar-menu" id="navMenu">
+            <div class="navbar-end">
+              <a class="navbar-item" href="../../download">
+                Download
+              </a>
+              <a class="navbar-item" href="../../themes">
+                Themes
+              </a>
+              <a class="navbar-item" href="../../docs">
+                Documentation
+              </a>
+              </div>
+          </div>
+      </div>
+    </nav>
+
+
+  <section class="page-header">
+    <div class="container">
+        
+      <a href="../../docs">Documentation</a>
+      
+      » Galleria in Tumblr
+
+    </div>
+  </section>
+
+
+  
+  <section class="section">
+    <div class="container">
+    
+        <div class="columns is-variable is-8">
+          <div class="column is-three-quarters">
+              <main id="main" class="site-main" role="main">
+              
+  <div class="sphinx">
+      <div class="type">
+        
+  <div class="section" id="galleria-in-tumblr">
+<h1>Galleria in Tumblr</h1>
+<div class="figure align-default" id="id1">
+<img alt="Galleria  theme 'Miniml' in Tumblr free theme 'Simpler Things'." src="../../_images/miniml_in_simple_things.png" />
+<p class="caption"><span class="caption-text">The image above shows the free Tumblr theme “Simpler Things” by Dan Hauk running an instance of Galleria with the “Miniml” theme in thumbnail mode.</span></p>
+</div>
+<p>This is a quick guide to help you turn a Tumblr photoset into a Galleria. It works with most Tumblr themes, though you should use it with caution if you change themes often.</p>
+<div class="section" id="create-the-photoset">
+<h2>1. Create the photoset</h2>
+<p>Log in to your Tumblr account and click on the photo icon. Upload the photos you want to display, and <em>publish the post</em>. This is necessary to get the right photoset id.</p>
+</div>
+<div class="section" id="edit-the-photoset">
+<h2>2. Edit the photoset</h2>
+<p>As soon as your photoset is saved, you should be able to click the pencil icon to edit it.
+Scroll to the bottom of the edit window, where you will find the caption field. In the toolbar, you will find an <code class="docutils literal notranslate"><span class="pre">html</span></code> icon. Click it. It will turn blue, indicating that you are editing in html mode.</p>
+<p>Copy the code below and paste it into the editor:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">jQuery</span> <span class="o">||</span> <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;\x3Cscript src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js&quot;&gt;\x3C/script&gt;&#39;</span><span class="p">);</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">Galleria</span> <span class="o">||</span> <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;\x3Cscript src=&quot;//cdnjs.cloudflare.com/ajax/libs/galleria/1.3.6/galleria.min.js&quot;&gt;\x3C/script&gt;\x3Cscript src=&quot;//cdnjs.cloudflare.com/ajax/libs/galleria/1.3.6/themes/classic/galleria.classic.min.js&quot;&gt;\x3C/script&gt;&#39;</span><span class="p">);</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
+<span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Change photoset_id below to match your photoset id.</span>
+    <span class="c1">// It&#39;s the row of numbers at the end of the adress when you edit your post.</span>
+    <span class="c1">// E.g. http://www.tumblr.com/edit/123456789</span>
+    <span class="c1">// -------------------------------------------</span>
+        <span class="kd">var</span> <span class="nx">photoset_id</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="c1">// -------------------------------------------</span>
+
+    <span class="nx">Galleria</span><span class="p">.</span><span class="nx">configure</span><span class="p">({</span>
+        <span class="nx">debug</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">lightbox</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">})</span>
+
+    <span class="c1">// No need to edit beyond this line</span>
+    <span class="kd">var</span> <span class="nx">pc</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;[id*=&quot;&#39;</span> <span class="o">+</span> <span class="nx">photoset_id</span> <span class="o">+</span> <span class="s1">&#39;&quot;]&#39;</span><span class="p">),</span>
+        <span class="nx">w</span> <span class="o">=</span> <span class="nx">pc</span><span class="p">.</span><span class="nx">width</span><span class="p">(),</span>
+        <span class="nx">h</span> <span class="o">=</span> <span class="nx">w</span><span class="o">*</span><span class="mf">0.5625</span><span class="p">,</span>
+        <span class="nx">ifr</span> <span class="o">=</span> <span class="nx">pc</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;iframe&#39;</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span> <span class="nx">ifr</span><span class="p">.</span><span class="nx">length</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">elem</span> <span class="o">=</span> <span class="nx">ifr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                <span class="kd">var</span> <span class="nx">pc</span> <span class="o">=</span> <span class="nx">ifr</span><span class="p">.</span><span class="nx">parent</span><span class="p">(),</span>
+                    <span class="nx">w</span> <span class="o">=</span> <span class="nx">ifr</span><span class="p">.</span><span class="nx">width</span><span class="p">(),</span>
+                    <span class="nx">h</span> <span class="o">=</span> <span class="nx">w</span><span class="o">*</span><span class="mf">0.5625</span><span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">pc</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
+                    <span class="nx">Galleria</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nx">pc</span><span class="p">,</span> <span class="p">{</span> <span class="nx">height</span><span class="o">:</span> <span class="nx">h</span><span class="p">,</span> <span class="nx">width</span><span class="o">:</span> <span class="nx">w</span><span class="p">,</span> <span class="nx">dataSource</span><span class="o">:</span> <span class="nx">ifr</span><span class="p">.</span><span class="nx">contents</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="p">});</span>
+            <span class="p">};</span>
+        <span class="nx">elem</span><span class="p">.</span><span class="nx">attachEvent</span> <span class="o">&amp;&amp;</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">attachEvent</span><span class="p">(</span><span class="s2">&quot;onload&quot;</span><span class="p">,</span> <span class="nx">onload</span><span class="p">);</span>
+        <span class="nx">elem</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="nx">onload</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">pc</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;[id*=&quot;photoset&quot;]&#39;</span><span class="p">).</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">pc</span> <span class="o">=</span> <span class="nx">pc</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;[id*=&quot;photoset&quot;]&#39;</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">pc</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;[class*=&quot;photoset&quot;]&#39;</span><span class="p">).</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">pc</span> <span class="o">=</span> <span class="nx">pc</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;[class*=&quot;photoset&quot;]&#39;</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// This is a good place to put theme specific selectors</span>
+            <span class="c1">// pc = $(&#39;#path.to[my=&quot;id&quot;]&#39;);</span>
+            <span class="c1">// w = pc.width();</span>
+            <span class="c1">// h = w*0.5625;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">pc</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
+            <span class="nx">Galleria</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nx">pc</span><span class="p">,</span> <span class="p">{</span><span class="nx">height</span><span class="o">:</span> <span class="nx">h</span><span class="p">,</span> <span class="nx">width</span><span class="o">:</span> <span class="nx">w</span><span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">}());</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Find the line at the top of the script that reads <code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">photoset_id</span> <span class="pre">=</span> <span class="pre">'';</span></code>. This is where you put the individual id for this photoset.
+You can find the photoset id at the end of the address in your browser’s location bar as you are editing. Copy all the numbers after <code class="docutils literal notranslate"><span class="pre">www.tumblr.com/edit/</span></code>.
+Then, place you caret between the two single quotation marks on the line above, and paste. Save your post again.</p>
+<img alt="Screenshot of Tumblr in edit mode." src="../../_images/tumblr.png" />
+</div>
+<div class="section" id="try-it-out">
+<h2>3. Try it out</h2>
+<p>That’s it. You’re done. Now, we should point out that this script will work on <em>nearly</em> every Tumblr theme, but it’s not bullet proof.
+If it works with your theme and you don’t plan on switching themes any time soon, you’re probably fine. If you do switch themes, you should probably check one of your Galleriafied photosets to make sure it works as expected. Read more about theme compability below.</p>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting</h2>
+<p>Tumblr gives theme developers a huge amount of freedom when creating themes. That’s nice, but it also makes it harder for Galleria to find the images you want it to display. The script above tries a few different methods to find the images. However, if the way a theme is built differs too much from a few assumptions made by the script, it will not be possible to locate the images in the photoset. Below you’ll find some of the possible problems.</p>
+<p><em>Disclaimer:*</em> Any modifications you do to your Tumblr theme are your responsibility. We do not support nor condone any such modifications.*</p>
+<p><strong>No photoset id:</strong> While testing the script, the most common reason it didn’t work was that the theme designer had chosen not to include the photoset id in the theme code. Galleria needs a way to identify a specific photoset, and will not work without it. <strong>Pro tip:</strong> Try editing the html of your Tumblr theme, and add this attribute to the photoset container: <code class="docutils literal notranslate"><span class="pre">id=&quot;{PostID}&quot;</span></code>.</p>
+<p><strong>Faulty selectors:</strong> On some themes, the photoset id might be there, but the markup is too different from what the scripts expects. In that case, you can try to find the right selectors yourself. How to do that is out of scope for this article, but you might get some insights by reading <a class="reference external" href="http://docs.jquery.com/Tutorials:How_to_Get_Anything_You_Want_2">this text</a> on jQuery selectors. If you’re able to find a selector that works for you, find the line in the script that reads <code class="docutils literal notranslate"><span class="pre">//</span> <span class="pre">This</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">good</span> <span class="pre">place</span> <span class="pre">to</span> <span class="pre">put</span> <span class="pre">theme</span> <span class="pre">specific</span> <span class="pre">selectors</span></code>. Below are three lines of commented out javascript. Uncomment all three of them, and change the jQuery in the first line to suit your needs.</p>
+<p><strong>No scripts in the source code:</strong> If this is the case, your theme probably doesn’t print out the photoset caption. <strong>Pro tip:</strong> This can be fixed, but you need to edit your theme’s html. Go to the Tumblr html editor, find the block named Photoset (<code class="docutils literal notranslate"><span class="pre">{block:Photoset}</span></code>), and add this code somewhere suitable:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{block:Caption}
+    {Caption}
+{/block:Caption}
+</pre></div>
+</div>
+<p><strong>“Novelty themes”:</strong> Themes like <strong>Organ</strong> by <em>simurai</em> and <strong>Paper Stacks</strong> by <em>alldayeverydaynyc</em> will most likely not work with this technique. Some break gracefully, some don’t.</p>
+</div>
+</div>
+
+
+      </div>
+  </div>
+
+              </main>
+          </div>
+          <div class="column" role="complementary">
+              
+<section class="widget_toc">
+        <ul>
+<li><a class="reference internal" href="#">Galleria in Tumblr</a><ul>
+<li><a class="reference internal" href="#create-the-photoset">1. Create the photoset</a></li>
+<li><a class="reference internal" href="#edit-the-photoset">2. Edit the photoset</a></li>
+<li><a class="reference internal" href="#try-it-out">3. Try it out</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+
+</section>
+
+<section class="widget_search">
+    
+<div id="searchbox" class="control">
+  <form role="search" class="search-form" action="../../search.html" method="GET">
+    <label for="quick-search-form">
+        <input type="search" id="quick-search-form" class="search-field" placeholder="Search docs" value="" name="q">
+    </label>
+    <button type="submit" class="search-submit">
+        <svg width="16" height="16" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:10;">
+            <g>
+                <circle cx="6.607" cy="6.607" r="5.201" style="fill:none;stroke-width:2px;"></circle>
+                <path d="M10.284,10.284L14.408,14.408" style="fill:none;stroke-width:2px;stroke-linecap:round;"></path>
+            </g>
+        </svg>
+    </button>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+</section>
+
+
+          </div>
+        </div>
+    
+    </div>
+  </section>
+ 
+
+
+<footer class="footer">
+  <div class="content has-text-centered">
+      <ul class="footer-menu">
+          <li><a href="../../download">Download</a></li>
+          <li><a href="../../themes">Themes</a></li>
+          <li><a href="../../docs">Documentation</a></li>
+          <li><a href="https://github.com/galleriajs/galleria">Github</a></li>
+      </ul>
+  </div>
+</footer>
+
+
+<script src="../../_static/main.min.js"></script>
+
+</body>
+</html>

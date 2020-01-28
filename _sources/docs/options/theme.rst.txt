@@ -1,0 +1,9 @@
+=====
+theme
+=====
+
+    | type: **String**
+    | default: **null**
+
+Use this option to specify a certain theme to an instance. If you load multiple themes, this option is necessary
+for Galleria to know what theme to use. If you don’t specify this, the latest loaded theme will be used.

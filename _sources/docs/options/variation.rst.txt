@@ -1,0 +1,17 @@
+=========
+variation
+=========
+
+    | type: **String**
+    | default: **''**
+
+Some themes have visual variations defined in the CSS. It can be a lighter color scheme, different arrows
+or something else. You can read about each variation in the documentation for each theme.
+
+You can add multiple variations byseparating them by spaces, f.ex **"light smallarow"**.
+
+Example::
+
+    Galleria.configure({
+        variation: 'light'
+    });

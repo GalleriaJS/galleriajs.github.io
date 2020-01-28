@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FAQ | Galleria 1.6 documentation – Galleria Documentation</title>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../../_static/favicon.ico">
+    <link rel="stylesheet" href="../../_static/style.min.css" type='text/css' media="all" />
+    
+    
+    
+        <link rel="index" title="Index" href="../../genindex.html"/>
+    
+    
+        <link rel="search" title="Search" href="../../search.html"/>
+    
+    <link rel="top" title="Galleria 1.6 documentation" href="../index.html"/>
+    
+    
+        <link rel="next" title="Changelog" href="changelog.html"/>
+    
+    
+        <link rel="prev" title="DOM Structure" href="dom.html"/>
+    
+
+  
+
+
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/galleria.min.js"></script>
+    
+    
+        <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js" defer></script>
+        <script type="text/javascript" src="../../_static/doctools.js" defer></script>
+        <script type="text/javascript" src="../../_static/language_data.js" defer></script>
+    
+    
+</head>
+
+<body class="docs">
+    <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+      <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+              Galleria
+            </a>
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div class="navbar-menu" id="navMenu">
+            <div class="navbar-end">
+              <a class="navbar-item" href="../../download">
+                Download
+              </a>
+              <a class="navbar-item" href="../../themes">
+                Themes
+              </a>
+              <a class="navbar-item" href="../../docs">
+                Documentation
+              </a>
+              </div>
+          </div>
+      </div>
+    </nav>
+
+
+  <section class="page-header">
+    <div class="container">
+        
+      <a href="../../docs">Documentation</a>
+      
+      » FAQ
+
+    </div>
+  </section>
+
+
+  
+  <section class="section">
+    <div class="container">
+    
+        <div class="columns is-variable is-8">
+          <div class="column is-three-quarters">
+              <main id="main" class="site-main" role="main">
+              
+  <div class="sphinx">
+      <div class="type">
+        
+  <div class="section" id="faq">
+<span id="id1"></span><h1>FAQ</h1>
+<div class="section" id="what-browsers-can-i-run-galleria-in">
+<h2>What browsers can I run Galleria in?</h2>
+<p><strong>The short answer:</strong> IE7+, FF3+, Opera 11+, Chrome 9+, Safar 4+ and Mobile Safari.</p>
+<p><strong>The long answer:</strong> The Galleria core is not very browser dependent. We use regular, linted JavaScript for most of our API and jQuery to even out browser differences in the DOM. However, themes might have different support tables, and sometimes they use progressive enhancement for visual details. All themes made by Galleria supports IE7+, Opera 11, Firefox 3+, Chrome 9+, Safari 4+ and Mobile Safari (iPad, iPhone, Android etc).</p>
+<p>IE6 is not supported by any theme at this point, but Galleria itself supports it so you can patch a theme yourself if you need IE6 compliance (we don’t really see the point though).</p>
+</div>
+<div class="section" id="will-my-theme-still-work-with-the-new-updated-version-of-galleria">
+<h2>Will my Theme still work with the new updated Version of Galleria?</h2>
+<p>Themes follow the same version numbering system as Galleria and the number represents the Galleria version for which it was last updated. Only bigger updates will eventually need an updated theme. So if your theme is version 1.4.2 (or you are using Galleria 1.4.2) and Galleria now is 1.4.5 your theme will still work. An update to Galleria 1.5 will likely break your theme and you will need an update for the theme too. We will however point out what themes are still compatible or will break when releasing an bigger update.</p>
+</div>
+<div class="section" id="i-get-a-fatal-error-when-i-run-galleria">
+<h2>I get a “Fatal Error” when I run Galleria</h2>
+<p>Galleria throws errors when something is not right. Some errors are considered critical for Galleria to run properly, and when they occur Galleria stops and throws a “Fatal Error”.
+The most common error is that the path to the themes, images or scripts are wrong so please double check those and make sure you have the right permissions set.</p>
+<p>Another common issue is that the gallery is hidden when it tries to initialize, then it will fail to extract correct measurements. Make sure the gallery is visible or try the <a class="reference internal" href="../options/wait.html"><span class="doc">wait</span></a> option and <code class="docutils literal notranslate"><span class="pre">Galleria.init()</span></code> is called when all elements on the page have been loaded (by using jQuery’s <code class="docutils literal notranslate"><span class="pre">$(</span> <span class="pre">document</span> <span class="pre">).ready();</span></code> (see more under <a class="reference internal" href="errors.html"><span class="doc">Galleria error messages</span></a>).</p>
+<p>If you are experiencing other problems, you might want to optimize your gallery for better loading process.
+Please read through <a class="reference internal" href="optimize.html"><span class="doc">Optimizing Galleria</span></a> to get information of the best way to optimize your gallery.</p>
+</div>
+<div class="section" id="the-gallery-does-not-work-instead-i-get-a-big-list-of-images">
+<h2>The gallery does not work, instead I get a big list of images</h2>
+<p>This is probably because Galleria never gets initialized. Please make sure you are:</p>
+<ul class="simple">
+<li><p>targeting the correct element selector when calling Galleria</p></li>
+<li><p>including jQuery in your document</p></li>
+<li><p>including Galleria and not getting any error messages</p></li>
+<li><p>make sure the path to the scripts are correct and you have the right permissions</p></li>
+<li><p>calling Galleria after the images in the HTML source</p></li>
+</ul>
+</div>
+<div class="section" id="galleria-runs-much-smoother-in-chrome-than-in-ie">
+<h2>Galleria runs much smoother in Chrome than in IE</h2>
+<p>Being JavaScript based, the user experience can vary depending on browser and OS environment. Chrome is generally a really good browser with a fast JavaScript rendering engine, while IE and FF can be slower. We did optimize the product to work at it’s best in all environments, but the result can vary slightly.</p>
+</div>
+<div class="section" id="what-mobile-strategy-does-galleria-have">
+<h2>What mobile strategy does Galleria have?</h2>
+<p>Ge focus on mobile compatibility in a responsive context, meaning that the Galleria gallery works on mobile devices much the same way as they do on the desktop web. We also optimize our themes so the interaction is more precise when displayed on touch devices.</p>
+</div>
+<div class="section" id="how-do-i-load-an-external-json-file-with-image-data-for-galleria">
+<h2>How do i load an external JSON File with image data for Galleria?</h2>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span><span class="nx">jsonURL</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">data</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">Galleria</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span> <span class="s1">&#39;#galleria&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">dataSource</span><span class="o">:</span> <span class="nx">data</span><span class="p">}</span> <span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="galleria-does-not-work-with-webpack">
+<h2>Galleria does not work with webpack</h2>
+<p>If you are using webpack, you will need to use <a class="reference external" href="https://webpack.js.org/guides/shimming/">shimming</a> as Galleria requires access to the window.location object:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">rules</span><span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nx">test</span><span class="o">:</span> <span class="sr">/galleria.*.js$/</span><span class="p">,</span>
+                <span class="nx">loader</span><span class="o">:</span> <span class="s2">&quot;imports-loader?this=&gt;window&quot;</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="srcset-and-sizes-are-not-working-like-expected">
+<h2>Srcset and Sizes are not working like expected</h2>
+<p>For some Browsers it’s important that the img src is included in srcset/sizes, so if you define a srcset - for example for retina / high dpi displays - include the 1x:</p>
+<div class="highlight-HTML notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;image.jpg&quot;</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">&quot;image.jpg 1x, image@2x.jpg 2x&quot;</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;thumb.jpg&quot;</span> <span class="na">srcset</span><span class="o">=</span><span class="s">&quot;thumb.jpg 1x, thumb@2x.jpg 2x&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+      </div>
+  </div>
+
+              </main>
+          </div>
+          <div class="column" role="complementary">
+              
+<section class="widget_toc">
+        <ul>
+<li><a class="reference internal" href="#">FAQ</a><ul>
+<li><a class="reference internal" href="#what-browsers-can-i-run-galleria-in">What browsers can I run Galleria in?</a></li>
+<li><a class="reference internal" href="#will-my-theme-still-work-with-the-new-updated-version-of-galleria">Will my Theme still work with the new updated Version of Galleria?</a></li>
+<li><a class="reference internal" href="#i-get-a-fatal-error-when-i-run-galleria">I get a “Fatal Error” when I run Galleria</a></li>
+<li><a class="reference internal" href="#the-gallery-does-not-work-instead-i-get-a-big-list-of-images">The gallery does not work, instead I get a big list of images</a></li>
+<li><a class="reference internal" href="#galleria-runs-much-smoother-in-chrome-than-in-ie">Galleria runs much smoother in Chrome than in IE</a></li>
+<li><a class="reference internal" href="#what-mobile-strategy-does-galleria-have">What mobile strategy does Galleria have?</a></li>
+<li><a class="reference internal" href="#how-do-i-load-an-external-json-file-with-image-data-for-galleria">How do i load an external JSON File with image data for Galleria?</a></li>
+<li><a class="reference internal" href="#galleria-does-not-work-with-webpack">Galleria does not work with webpack</a></li>
+<li><a class="reference internal" href="#srcset-and-sizes-are-not-working-like-expected">Srcset and Sizes are not working like expected</a></li>
+</ul>
+</li>
+</ul>
+
+</section>
+
+<section class="widget_search">
+    
+<div id="searchbox" class="control">
+  <form role="search" class="search-form" action="../../search.html" method="GET">
+    <label for="quick-search-form">
+        <input type="search" id="quick-search-form" class="search-field" placeholder="Search docs" value="" name="q">
+    </label>
+    <button type="submit" class="search-submit">
+        <svg width="16" height="16" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:10;">
+            <g>
+                <circle cx="6.607" cy="6.607" r="5.201" style="fill:none;stroke-width:2px;"></circle>
+                <path d="M10.284,10.284L14.408,14.408" style="fill:none;stroke-width:2px;stroke-linecap:round;"></path>
+            </g>
+        </svg>
+    </button>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+</section>
+
+
+          </div>
+        </div>
+    
+    </div>
+  </section>
+ 
+
+
+<footer class="footer">
+  <div class="content has-text-centered">
+      <ul class="footer-menu">
+          <li><a href="../../download">Download</a></li>
+          <li><a href="../../themes">Themes</a></li>
+          <li><a href="../../docs">Documentation</a></li>
+          <li><a href="https://github.com/galleriajs/galleria">Github</a></li>
+      </ul>
+  </div>
+</footer>
+
+
+<script src="../../_static/main.min.js"></script>
+
+</body>
+</html>

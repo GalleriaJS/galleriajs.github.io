@@ -1,0 +1,13 @@
+=====
+swipe
+=====
+
+    | type: **String**
+    | default: **'auto'**
+
+Controls the swipe movement. You can use this option to disable the native-like swipe on touch devices.
+You can also use it to enforce a swipe-like interface for desktop, meaning that the images will stack up next to each other.
+
+- **'auto'** sets swipe based on touch device detection
+- **'disabled'** disabled swipes on all devices
+- **'enforced'** enables a swipe-like interface on desktop as well

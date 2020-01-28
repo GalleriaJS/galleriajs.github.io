@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Events | Galleria 1.6 documentation – Galleria Documentation</title>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../../_static/favicon.ico">
+    <link rel="stylesheet" href="../../_static/style.min.css" type='text/css' media="all" />
+    
+    
+    
+        <link rel="index" title="Index" href="../../genindex.html"/>
+    
+    
+        <link rel="search" title="Search" href="../../search.html"/>
+    
+    <link rel="top" title="Galleria 1.6 documentation" href="../index.html"/>
+    
+    
+        <link rel="next" title="Utilities" href="utilities.html"/>
+    
+    
+        <link rel="prev" title="API Methods" href="methods.html"/>
+    
+
+  
+
+
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/galleria.min.js"></script>
+    
+    
+        <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js" defer></script>
+        <script type="text/javascript" src="../../_static/doctools.js" defer></script>
+        <script type="text/javascript" src="../../_static/language_data.js" defer></script>
+    
+    
+</head>
+
+<body class="docs">
+    <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+      <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+              Galleria
+            </a>
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div class="navbar-menu" id="navMenu">
+            <div class="navbar-end">
+              <a class="navbar-item" href="../../download">
+                Download
+              </a>
+              <a class="navbar-item" href="../../themes">
+                Themes
+              </a>
+              <a class="navbar-item" href="../../docs">
+                Documentation
+              </a>
+              </div>
+          </div>
+      </div>
+    </nav>
+
+
+  <section class="page-header">
+    <div class="container">
+        
+      <a href="../../docs">Documentation</a>
+      
+      » Events
+
+    </div>
+  </section>
+
+
+  
+  <section class="section">
+    <div class="container">
+    
+        <div class="columns is-variable is-8">
+          <div class="column is-three-quarters">
+              <main id="main" class="site-main" role="main">
+              
+  <div class="sphinx">
+      <div class="type">
+        
+  <div class="section" id="events">
+<h1>Events</h1>
+<p>You can bind functions to the Galleria events to build custom themes. All
+callbacks contains an event object as a function argument. The event object is
+similar to the one that jQuery uses in their event model, except that it adds even further
+properties to the event object, specified here.</p>
+<p>In the callback, the <code class="docutils literal notranslate"><span class="pre">this</span></code> keyword inside the callback always refers to the gallery scope.</p>
+<div class="section" id="how-to-use-the-events">
+<h2>How to use the events</h2>
+<p>You can use the global <code class="docutils literal notranslate"><span class="pre">Galleria.on()</span></code> function to bind functions to events, f.ex:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Galleria</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">Galleria</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// the gallery scope</span>
+    <span class="nx">Galleria</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">imageTarget</span><span class="p">);</span> <span class="c1">// the currently active IMG element</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Or you can use <code class="docutils literal notranslate"><span class="pre">.bind()</span></code>  inside the <code class="docutils literal notranslate"><span class="pre">Galleria.ready</span></code> or <code class="docutils literal notranslate"><span class="pre">extend</span></code> to listen to
+the Galleria events. Example:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Galleria</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;thumbnail&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">Galleria</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// the gallery scope</span>
+        <span class="nx">Galleria</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="c1">// the event object</span>
+    <span class="p">});</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;loadstart&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">e</span><span class="p">.</span><span class="nx">cached</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="nx">Galleria</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span> <span class="o">+</span> <span class="s1">&#39; is not cached. Begin preload...&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-of-galleria-events">
+<h2>List of Galleria events</h2>
+<div class="section" id="thumbnail">
+<h3>thumbnail</h3>
+<p>Triggers when a thumbnail is loaded and displayed in Galleria.</p>
+<div class="section" id="event-properties">
+<h4>Event properties:</h4>
+<ul class="simple">
+<li><p><strong>galleriaData</strong> (Object) The currently active data object</p></li>
+<li><p><strong>thumbTarget</strong> (HTML element) The thumbnail IMG element</p></li>
+<li><p><strong>index</strong> (int) the index of the thumbnail, starting at 0</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="loadstart">
+<h3>loadstart</h3>
+<p>Triggers every time Galleria begins loading an image.</p>
+<div class="section" id="id1">
+<h4>Event properties:</h4>
+<ul class="simple">
+<li><p><strong>galleriaData</strong> (Object) The currently active data object</p></li>
+<li><p><strong>cached</strong> (boolean) is true if the image is cached (no loading required).</p></li>
+<li><p><strong>imageTarget</strong> (HTML element) The <code class="docutils literal notranslate"><span class="pre">IMG</span></code> element of the image about to load.</p></li>
+<li><p><strong>thumbTarget</strong> (HTML element) The <code class="docutils literal notranslate"><span class="pre">IMG</span></code> element of the thumbnail that
+belongs to the imageTarget.</p></li>
+<li><p><strong>index</strong> (Number) The galleria index of the image about to load.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="loadfinish">
+<h3>loadfinish</h3>
+<p>Triggers every time Galleria has finished loading an image.</p>
+<div class="section" id="id2">
+<h4>Event properties:</h4>
+<ul class="simple">
+<li><p><strong>galleriaData</strong> (Object) The currently active data object</p></li>
+<li><p><strong>cached</strong> (boolean) is true if the image is cached (no loading required).</p></li>
+<li><p><strong>imageTarget</strong> (HTML element) The <code class="docutils literal notranslate"><span class="pre">IMG</span></code> element of the now loaded image
+before transition.</p></li>
+<li><p><strong>thumbTarget</strong> (HTML element) The <code class="docutils literal notranslate"><span class="pre">IMG</span></code> element of the thumbnail that
+belongs to the imageTarget.</p></li>
+<li><p><strong>index</strong> (Number) The galleria index of the image loaded.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="image">
+<h3>image</h3>
+<p>Triggers when the gallery image is displayed after loading and transition.</p>
+<div class="section" id="id3">
+<h4>Event properties:</h4>
+<ul class="simple">
+<li><p><strong>galleriaData</strong> (Object) The currently active data object</p></li>
+<li><p><strong>imageTarget</strong> (HTML element) The <code class="docutils literal notranslate"><span class="pre">IMG</span></code> element of the now active
+displayed image after transition.</p></li>
+<li><p><strong>thumbTarget</strong> (HTML element) The <code class="docutils literal notranslate"><span class="pre">IMG</span></code> element of the active thumbnail.</p></li>
+<li><p><strong>index</strong> (Number) The galleria index of the image loaded.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="play">
+<h3>play</h3>
+<p>Triggers when the galleria slideshow starts playing.</p>
+</div>
+<div class="section" id="pause">
+<h3>pause</h3>
+<p>Triggers when the galleria slideshow stops playing.</p>
+</div>
+<div class="section" id="progress">
+<h3>progress</h3>
+<p>Triggers every x milliseconds during slideshow. You can listen to this if you
+want to create a progress bar for slideshows.</p>
+<div class="section" id="id4">
+<h4>Event properties:</h4>
+<ul class="simple">
+<li><p><strong>percent</strong> (Number) prints the percent (0-100) of the slideshow progress.</p></li>
+<li><p><strong>seconds</strong> (Number) prints the seconds elapsed since the last image during
+slideshow.</p></li>
+<li><p><strong>milliseconds</strong> (Number) prints the milliseconds elapsed since the last
+image during slideshow.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="fullscreen-enter">
+<h3>fullscreen_enter</h3>
+<p>Triggers when the gallery goes into fullscreen mode.</p>
+</div>
+<div class="section" id="fullscreen-exit">
+<h3>fullscreen_exit</h3>
+<p>Triggers when the gallery exits the fullscreen mode.</p>
+</div>
+<div class="section" id="idle-enter">
+<h3>idle_enter</h3>
+<p>Triggers when the gallery goes into idle mode.</p>
+</div>
+<div class="section" id="idle-exit">
+<h3>idle_exit</h3>
+<p>Triggers when the gallery exists idle mode.</p>
+</div>
+<div class="section" id="rescale">
+<h3>rescale</h3>
+<p>Triggers every time the rescale() method is used and completed for rescaling
+the gallery.</p>
+</div>
+<div class="section" id="lightbox-open">
+<h3>lightbox_open</h3>
+<p>Triggers every time the lightbox is opened.</p>
+</div>
+<div class="section" id="lightbox-close">
+<h3>lightbox_close</h3>
+<p>Triggers every time the lightbox is closed.</p>
+</div>
+<div class="section" id="lightbox-image">
+<h3>lightbox_image</h3>
+<p>Triggers when the lightbox image is displayed after loading and transition.</p>
+<div class="section" id="id5">
+<h4>Event properties:</h4>
+<ul class="simple">
+<li><p><strong>imageTarget</strong> (HTML element) The <code class="docutils literal notranslate"><span class="pre">IMG</span></code> element of the now active
+displayed image after transition.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+      </div>
+  </div>
+
+              </main>
+          </div>
+          <div class="column" role="complementary">
+              
+<section class="widget_toc">
+        <ul>
+<li><a class="reference internal" href="#">Events</a><ul>
+<li><a class="reference internal" href="#how-to-use-the-events">How to use the events</a></li>
+<li><a class="reference internal" href="#list-of-galleria-events">List of Galleria events</a><ul>
+<li><a class="reference internal" href="#thumbnail">thumbnail</a><ul>
+<li><a class="reference internal" href="#event-properties">Event properties:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#loadstart">loadstart</a><ul>
+<li><a class="reference internal" href="#id1">Event properties:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#loadfinish">loadfinish</a><ul>
+<li><a class="reference internal" href="#id2">Event properties:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#image">image</a><ul>
+<li><a class="reference internal" href="#id3">Event properties:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#play">play</a></li>
+<li><a class="reference internal" href="#pause">pause</a></li>
+<li><a class="reference internal" href="#progress">progress</a><ul>
+<li><a class="reference internal" href="#id4">Event properties:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fullscreen-enter">fullscreen_enter</a></li>
+<li><a class="reference internal" href="#fullscreen-exit">fullscreen_exit</a></li>
+<li><a class="reference internal" href="#idle-enter">idle_enter</a></li>
+<li><a class="reference internal" href="#idle-exit">idle_exit</a></li>
+<li><a class="reference internal" href="#rescale">rescale</a></li>
+<li><a class="reference internal" href="#lightbox-open">lightbox_open</a></li>
+<li><a class="reference internal" href="#lightbox-close">lightbox_close</a></li>
+<li><a class="reference internal" href="#lightbox-image">lightbox_image</a><ul>
+<li><a class="reference internal" href="#id5">Event properties:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+
+<section class="widget_search">
+    
+<div id="searchbox" class="control">
+  <form role="search" class="search-form" action="../../search.html" method="GET">
+    <label for="quick-search-form">
+        <input type="search" id="quick-search-form" class="search-field" placeholder="Search docs" value="" name="q">
+    </label>
+    <button type="submit" class="search-submit">
+        <svg width="16" height="16" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:10;">
+            <g>
+                <circle cx="6.607" cy="6.607" r="5.201" style="fill:none;stroke-width:2px;"></circle>
+                <path d="M10.284,10.284L14.408,14.408" style="fill:none;stroke-width:2px;stroke-linecap:round;"></path>
+            </g>
+        </svg>
+    </button>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+</section>
+
+
+          </div>
+        </div>
+    
+    </div>
+  </section>
+ 
+
+
+<footer class="footer">
+  <div class="content has-text-centered">
+      <ul class="footer-menu">
+          <li><a href="../../download">Download</a></li>
+          <li><a href="../../themes">Themes</a></li>
+          <li><a href="../../docs">Documentation</a></li>
+          <li><a href="https://github.com/galleriajs/galleria">Github</a></li>
+      </ul>
+  </div>
+</footer>
+
+
+<script src="../../_static/main.min.js"></script>
+
+</body>
+</html>

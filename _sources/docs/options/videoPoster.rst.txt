@@ -1,0 +1,11 @@
+===========
+videoPoster
+===========
+
+    | type: **Boolean**
+    | default: **true**
+
+Since Galleria 1.3 it will use a poster image before showing the video iframe. You can set a custom image or load one
+automatically from the provider (youtube etc).
+
+If you wish to load the iframe directly, set this option to false.

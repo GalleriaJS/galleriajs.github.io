@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Options | Galleria 1.6 documentation – Galleria Documentation</title>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../../_static/favicon.ico">
+    <link rel="stylesheet" href="../../_static/style.min.css" type='text/css' media="all" />
+    
+    
+    
+        <link rel="index" title="Index" href="../../genindex.html"/>
+    
+    
+        <link rel="search" title="Search" href="../../search.html"/>
+    
+    <link rel="top" title="Galleria 1.6 documentation" href="../index.html"/>
+    
+    
+        <link rel="next" title="autoplay" href="autoplay.html"/>
+    
+    
+        <link rel="prev" title="Galleria error messages" href="../references/errors.html"/>
+    
+
+  
+
+
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/galleria.min.js"></script>
+    
+    
+        <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js" defer></script>
+        <script type="text/javascript" src="../../_static/doctools.js" defer></script>
+        <script type="text/javascript" src="../../_static/language_data.js" defer></script>
+    
+    
+</head>
+
+<body class="docs">
+    <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+      <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+              Galleria
+            </a>
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div class="navbar-menu" id="navMenu">
+            <div class="navbar-end">
+              <a class="navbar-item" href="../../download">
+                Download
+              </a>
+              <a class="navbar-item" href="../../themes">
+                Themes
+              </a>
+              <a class="navbar-item" href="../../docs">
+                Documentation
+              </a>
+              </div>
+          </div>
+      </div>
+    </nav>
+
+
+  <section class="page-header">
+    <div class="container">
+        
+      <a href="../../docs">Documentation</a>
+      
+      » Options
+
+    </div>
+  </section>
+
+
+  
+  <section class="section">
+    <div class="container">
+    
+        <div class="columns is-variable is-8">
+          <div class="column is-three-quarters">
+              <main id="main" class="site-main" role="main">
+              
+  <div class="sphinx">
+      <div class="type">
+        
+  <div class="section" id="options">
+<h1>Options</h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>The Galleria options cover most of the gallery customizations you will need for each implementation.
+Below you will find a summary of all options available. Click on an option title for more explanations and examples.</p>
+<p>These options are the standard options that you can use for all themes. However, themes can add new options and set/modify default values on their own. Please check each theme documentation for full coverage. Custom options for each theme starts with an underscore.</p>
+<div class="section" id="using-options">
+<h2>Using options</h2>
+<p>Galleria options can be configured at anytime using the <code class="docutils literal notranslate"><span class="pre">Galleria.configure</span></code> function. You can add this code anywhere in your scripts, but we recommend you to put it before the <code class="docutils literal notranslate"><span class="pre">Galleria.run</span></code> command:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>&lt;script&gt;
+    Galleria.loadTheme(&quot;themes/classic/galleria.classic.min.js&quot;);
+    Galleria.configure({
+        transition: &#39;fade&#39;,
+        imageCrop: true
+    });
+    Galleria.run();
+&lt;/script&gt;
+</pre></div>
+</div>
+<p>You can also add options as a second argument when calling <code class="docutils literal notranslate"><span class="pre">Galleria.run</span></code>:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Galleria</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">&#39;.galleria&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">transition</span><span class="o">:</span> <span class="s1">&#39;fade&#39;</span><span class="p">,</span>
+    <span class="nx">imageCrop</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-of-options">
+<h2>List of options</h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="autoplay.html"><span class="doc">autoplay</span></a> Sets Galleria to play slidehow when initialized.</p></li>
+<li><p><a class="reference internal" href="carousel.html"><span class="doc">carousel</span></a> Toggle the creation of a carousel.</p></li>
+<li><p><a class="reference internal" href="carouselSpeed.html"><span class="doc">carouselSpeed</span></a> Carousel animation speed in milliseconds.</p></li>
+<li><p><a class="reference internal" href="carouselSteps.html"><span class="doc">carouselSteps</span></a> Defines how many “steps” the carousel should take on
+each nav click.</p></li>
+<li><p><a class="reference internal" href="clicknext.html"><span class="doc">clicknext</span></a> Helper for adding a click event on the entire stage to move
+forward.</p></li>
+<li><p><a class="reference internal" href="dailymotion.html"><span class="doc">dailymotion</span></a> Adds player options for the Daliymotion video player</p></li>
+<li><p><a class="reference internal" href="dataConfig.html"><span class="doc">dataConfig( [HTML element] )</span></a> Defines how Galleria should parse the HTML. Useful for adding custom HTML captions.</p></li>
+<li><p><a class="reference internal" href="dataSelector.html"><span class="doc">dataSelector</span></a> Defines the selector Galleria should look for in the
+source.</p></li>
+<li><p><a class="reference internal" href="dataSort.html"><span class="doc">dataSort</span></a> Function to sort the data before using it.</p></li>
+<li><p><a class="reference internal" href="dataSource.html"><span class="doc">dataSource</span></a> Defines the Galleria data, or the HTML source where the
+data is found.</p></li>
+<li><p><a class="reference internal" href="debug.html"><span class="doc">debug</span></a> Set this to false to prevent debug messages.</p></li>
+<li><p><a class="reference internal" href="dummy.html"><span class="doc">dummy</span></a> Defines a dummy image that will be used if the image can’t be found.</p></li>
+<li><p><a class="reference internal" href="easing.html"><span class="doc">easing</span></a> Defines the easing mode globally.</p></li>
+<li><p><a class="reference internal" href="extend.html"><span class="doc">extend( [ options ] )</span></a> Add custom functionality to the gallery.</p></li>
+<li><p><a class="reference internal" href="fullscreenCrop.html"><span class="doc">fullscreenCrop</span></a> Sets how Galleria should crop when in fullscreen mode.</p></li>
+<li><p><a class="reference internal" href="fullscreenDoubleTap.html"><span class="doc">fullscreenDoubleTap</span></a> Enabled fullscreen toggle on double-tap for touch devices.</p></li>
+<li><p><a class="reference internal" href="fullscreenTransition.html"><span class="doc">fullscreenTransition</span></a> Defines a different transition for fullscreen mode.</p></li>
+<li><p><a class="reference internal" href="height.html"><span class="doc">height</span></a> Manually set a gallery height.</p></li>
+<li><p><a class="reference internal" href="idleMode.html"><span class="doc">idleMode</span></a> Option for turning on/off idle mode.</p></li>
+<li><p><a class="reference internal" href="idleTime.html"><span class="doc">idleTime</span></a> Defines how long delay before Galleria goes into idle mode.</p></li>
+<li><p><a class="reference internal" href="idleSpeed.html"><span class="doc">idleSpeed</span></a> Defines the animation speed in milliseconds when entering/exiting idle mode.</p></li>
+<li><p><a class="reference internal" href="imageCrop.html"><span class="doc">imageCrop</span></a> Defines how Galleria will crop the image.</p></li>
+<li><p><a class="reference internal" href="imageMargin.html"><span class="doc">imageMargin</span></a> Sets a margin between the image and the stage.</p></li>
+<li><p><a class="reference internal" href="imagePan.html"><span class="doc">imagePan</span></a> Toggles the image pan effect.</p></li>
+<li><p><a class="reference internal" href="imagePanSmoothness.html"><span class="doc">imagePanSmoothness</span></a> Defines how smooth ( and CPU consuming ) the pan
+effect should be.</p></li>
+<li><p><a class="reference internal" href="imagePosition.html"><span class="doc">imagePosition</span></a> Positions the image.</p></li>
+<li><p><a class="reference internal" href="imageTimeout.html"><span class="doc">imageTimeout</span></a> Sets a timeout for fetching images.</p></li>
+<li><p><a class="reference internal" href="initialTransition.html"><span class="doc">initialTransition</span></a> Sets a different transition on the the first image.</p></li>
+<li><p><a class="reference internal" href="keepSource.html"><span class="doc">keepSource</span></a> Lets you keep the source elements.</p></li>
+<li><p><a class="reference internal" href="layerFollow.html"><span class="doc">layerFollow</span></a> Boolean for controlling if the layer will follow the image size or not.</p></li>
+<li><p><a class="reference internal" href="lightbox.html"><span class="doc">lightbox</span></a> Helper for attaching a <strong>lightbox</strong> (to zoom in) when the user clicks on an image.</p></li>
+<li><p><a class="reference internal" href="lightboxFadeSpeed.html"><span class="doc">lightboxFadeSpeed</span></a> Defines how fast the lightbox should fade.</p></li>
+<li><p><a class="reference internal" href="lightboxTransitionSpeed.html"><span class="doc">lightboxTransitionSpeed</span></a> Defines how fast the lightbox should animate.</p></li>
+<li><p><a class="reference internal" href="maxScaleRatio.html"><span class="doc">maxScaleRatio</span></a> Defines how much Galleria is allowed to upscale images.</p></li>
+<li><p><a class="reference internal" href="maxVideoSize.html"><span class="doc">maxVideoSize</span></a> Defines how much Galleria is allowed to upscale videos.</p></li>
+<li><p><a class="reference internal" href="overlayBackground.html"><span class="doc">overlayBackground</span></a> Defines the background color of the overlay.</p></li>
+<li><p><a class="reference internal" href="overlayOpacity.html"><span class="doc">overlayOpacity</span></a> Sets how transparent the overlay should be.</p></li>
+<li><p><a class="reference internal" href="pauseOnInteraction.html"><span class="doc">pauseOnInteraction</span></a> Toggles if Galleria should stop playing if the
+user navigates.</p></li>
+<li><p><a class="reference internal" href="popupLinks.html"><span class="doc">popupLinks</span></a> Open Image links in new windows.</p></li>
+<li><p><a class="reference internal" href="preload.html"><span class="doc">preload</span></a> Defines how much Galleria should preload.</p></li>
+<li><p><a class="reference internal" href="queue.html"><span class="doc">queue</span></a> Defines if Galleria should queue the slideshow.</p></li>
+<li><p><a class="reference internal" href="responsive.html"><span class="doc">responsive</span></a> Sets Galleria in responsive mode.</p></li>
+<li><p><a class="reference internal" href="show.html"><span class="doc">show</span></a> Lets you start the slideshow at any image index.</p></li>
+<li><p><a class="reference internal" href="showCounter.html"><span class="doc">showCounter</span></a> Toggles the counter.</p></li>
+<li><p><a class="reference internal" href="showInfo.html"><span class="doc">showInfo</span></a> Toggles the caption.</p></li>
+<li><p><a class="reference internal" href="showImagenav.html"><span class="doc">showImagenav</span></a> Toggles the image navigation arrows.</p></li>
+<li><p><a class="reference internal" href="swipe.html"><span class="doc">swipe</span></a> Enables the swipe gesture for navigating on touch devices.</p></li>
+<li><p><a class="reference internal" href="thumbCrop.html"><span class="doc">thumbCrop</span></a> Same as image_crop for thumbnails.</p></li>
+<li><p><a class="reference internal" href="thumbDisplayOrder.html"><span class="doc">thumbDisplayOrder</span></a> Defines if the gallery should display the loaded thumbnails in order</p></li>
+<li><p><a class="reference internal" href="thumbMargin.html"><span class="doc">thumbMargin</span></a> Same as <a class="reference internal" href="imageMargin.html"><span class="doc">imageMargin</span></a> for thumbnails.</p></li>
+<li><p><a class="reference internal" href="thumbnails.html"><span class="doc">thumbnails</span></a> Sets how and if thumbnails should be created.</p></li>
+<li><p><a class="reference internal" href="thumbPosition.html"><span class="doc">thumbPosition</span></a> Same as <a class="reference internal" href="imagePosition.html"><span class="doc">imagePosition</span></a> for thumbnails.</p></li>
+<li><p><a class="reference internal" href="thumbQuality.html"><span class="doc">thumbQuality</span></a> Defines if and how IE should use bicubic image rendering
+for thumbnails</p></li>
+<li><p><a class="reference internal" href="touchTransition.html"><span class="doc">touchTransition</span></a> Defines a different transition when a touch device is detected.</p></li>
+<li><p><a class="reference internal" href="transition.html"><span class="doc">transition</span></a> Defines what transition to use.</p></li>
+<li><p><a class="reference internal" href="transitionSpeed.html"><span class="doc">transitionSpeed</span></a> Defines the speed of the transition.</p></li>
+<li><p><a class="reference internal" href="trueFullscreen.html"><span class="doc">trueFullscreen</span></a> Makes Galleria enter a native fullscreen mode where supported.</p></li>
+<li><p><a class="reference internal" href="variation.html"><span class="doc">variation</span></a> Visual variations of a theme</p></li>
+<li><p><a class="reference internal" href="videoPoster.html"><span class="doc">videoPoster</span></a> Defines if a poster image should be used for videos</p></li>
+<li><p><a class="reference internal" href="vimeo.html"><span class="doc">vimeo</span></a> Sets options for the Vimeo player</p></li>
+<li><p><a class="reference internal" href="wait.html"><span class="doc">wait</span></a> Defines if and how Galleria should wait until it can be displayed using user interaction.</p></li>
+<li><p><a class="reference internal" href="width.html"><span class="doc">width</span></a> Manually set a gallery width.</p></li>
+<li><p><a class="reference internal" href="youtube.html"><span class="doc">youtube</span></a> Sets options for the YouTube player</p></li>
+</ul>
+</div>
+</div>
+
+
+      </div>
+  </div>
+
+              </main>
+          </div>
+          <div class="column" role="complementary">
+              
+<section class="widget_toc">
+        <ul>
+<li><a class="reference internal" href="#">Options</a><ul>
+<li><a class="reference internal" href="#using-options">Using options</a></li>
+<li><a class="reference internal" href="#list-of-options">List of options</a></li>
+</ul>
+</li>
+</ul>
+
+</section>
+
+<section class="widget_search">
+    
+<div id="searchbox" class="control">
+  <form role="search" class="search-form" action="../../search.html" method="GET">
+    <label for="quick-search-form">
+        <input type="search" id="quick-search-form" class="search-field" placeholder="Search docs" value="" name="q">
+    </label>
+    <button type="submit" class="search-submit">
+        <svg width="16" height="16" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:10;">
+            <g>
+                <circle cx="6.607" cy="6.607" r="5.201" style="fill:none;stroke-width:2px;"></circle>
+                <path d="M10.284,10.284L14.408,14.408" style="fill:none;stroke-width:2px;stroke-linecap:round;"></path>
+            </g>
+        </svg>
+    </button>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+</section>
+
+
+          </div>
+        </div>
+    
+    </div>
+  </section>
+ 
+
+
+<footer class="footer">
+  <div class="content has-text-centered">
+      <ul class="footer-menu">
+          <li><a href="../../download">Download</a></li>
+          <li><a href="../../themes">Themes</a></li>
+          <li><a href="../../docs">Documentation</a></li>
+          <li><a href="https://github.com/galleriajs/galleria">Github</a></li>
+      </ul>
+  </div>
+</footer>
+
+
+<script src="../../_static/main.min.js"></script>
+
+</body>
+</html>

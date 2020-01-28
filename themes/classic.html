@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Galleria – Classic Theme</title>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../_static/favicon.ico">
+    <link rel="stylesheet" href="../_static/style.min.css" type='text/css' media="all" />
+    
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/galleria.min.js"></script>
+    
+    
+        <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js" defer></script>
+        <script type="text/javascript" src="../_static/doctools.js" defer></script>
+        <script type="text/javascript" src="../_static/language_data.js" defer></script>
+    
+    
+</head>
+
+<body class="demo">
+    <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+      <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+              Galleria
+            </a>
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div class="navbar-menu" id="navMenu">
+            <div class="navbar-end">
+              <a class="navbar-item" href="../download">
+                Download
+              </a>
+              <a class="navbar-item" href="../themes">
+                Themes
+              </a>
+              <a class="navbar-item" href="../docs">
+                Documentation
+              </a>
+              </div>
+          </div>
+      </div>
+    </nav>
+
+
+<section class="hero">
+  <div class="hero-body has-text-centered">
+    <div class="container">
+        
+      <h1 class="title">
+        Classic
+      </h1>
+      <h2 class="subtitle">
+        The original and the best. First Galleria theme ever to be made
+      </h2>
+
+    </div>
+  </div>
+</section>
+
+
+  
+  <section class="section">
+    <div class="container">
+    
+    <div class="content-wrapper">
+        <div class="center-block" id="demo"></div>
+    </div>
+
+    </div>
+  </section>
+ 
+
+
+<footer class="footer">
+  <div class="content has-text-centered">
+      <ul class="footer-menu">
+          <li><a href="../download">Download</a></li>
+          <li><a href="../themes">Themes</a></li>
+          <li><a href="../docs">Documentation</a></li>
+          <li><a href="https://github.com/galleriajs/galleria">Github</a></li>
+      </ul>
+  </div>
+</footer>
+
+
+<script src="../_static/main.min.js"></script>
+
+<script src="../_static/themes/classic/galleria.classic.min.js"></script>
+<script>
+    $(function() {
+        $.ajax({
+            url: "../_static/data.json",
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                Galleria.run('#demo', {
+                    responsive: true,
+                    height: 0.5,
+                    dataSource: data,
+                    maxVideoSize: 1300
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

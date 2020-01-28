@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Galleria error messages | Galleria 1.6 documentation – Galleria Documentation</title>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../../_static/favicon.ico">
+    <link rel="stylesheet" href="../../_static/style.min.css" type='text/css' media="all" />
+    
+    
+    
+        <link rel="index" title="Index" href="../../genindex.html"/>
+    
+    
+        <link rel="search" title="Search" href="../../search.html"/>
+    
+    <link rel="top" title="Galleria 1.6 documentation" href="../index.html"/>
+    
+    
+        <link rel="next" title="Options" href="../options/index.html"/>
+    
+    
+        <link rel="prev" title="Changelog" href="changelog.html"/>
+    
+
+  
+
+
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/galleria.min.js"></script>
+    
+    
+        <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js" defer></script>
+        <script type="text/javascript" src="../../_static/doctools.js" defer></script>
+        <script type="text/javascript" src="../../_static/language_data.js" defer></script>
+    
+    
+</head>
+
+<body class="docs">
+    <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+      <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+              Galleria
+            </a>
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div class="navbar-menu" id="navMenu">
+            <div class="navbar-end">
+              <a class="navbar-item" href="../../download">
+                Download
+              </a>
+              <a class="navbar-item" href="../../themes">
+                Themes
+              </a>
+              <a class="navbar-item" href="../../docs">
+                Documentation
+              </a>
+              </div>
+          </div>
+      </div>
+    </nav>
+
+
+  <section class="page-header">
+    <div class="container">
+        
+      <a href="../../docs">Documentation</a>
+      
+      » Galleria error messages
+
+    </div>
+  </section>
+
+
+  
+  <section class="section">
+    <div class="container">
+    
+        <div class="columns is-variable is-8">
+          <div class="column is-three-quarters">
+              <main id="main" class="site-main" role="main">
+              
+  <div class="sphinx">
+      <div class="type">
+        
+  <div class="section" id="galleria-error-messages">
+<h1>Galleria error messages</h1>
+<p>When Galleria run into problems, it will display errors in the gallery container.
+Red are fatal, they will also stop the gallery script. Black are warnings.</p>
+<p>Fatal errors will also throw an exception, causing all scripts to stop.</p>
+<p><strong>Tip:</strong> You can turn off all errors by setting <a class="reference internal" href="../options/debug.html"><span class="doc">debug</span></a> to false.
+If debug is set to false, no errors will be displayed and no exceptions thrown. If a fatal error occurs,
+a simple ‘Gallery could not load.’ will appear, but no other scripts will be affected.
+We recommend to have debug on while developing, then turn it off on deploy.</p>
+<p>Remember that the errors and warnings are designed to help you, not scare you away. They are simply a guide to why something is not working properly.
+So please, don’t panic and hit the support the first thing you do if you get errors, just read through this document and other pages in the documentation
+and go through necessary steps to debug the errors. Most times it is a small mistake somewhere that is easily corrected.</p>
+<p>This document will explain some of the most common error messages, what might cause them and what you can do if they appear.</p>
+<div class="section" id="theme-css-could-not-load">
+<h2>Theme CSS could not load</h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Type: <strong>Fatal</strong></div>
+</div>
+</div></blockquote>
+<p>This error message will appear if the browser could not load the CSS file attached to the theme when using loadTheme().
+It will try for 10 seconds before displaying this error.</p>
+<div class="section" id="what-you-can-do">
+<h3>What you can do</h3>
+<ol class="arabic simple">
+<li><p>Make sure that the CSS file is in the right path (inside the theme folder) and that it has the right permissions</p></li>
+<li><p>Optimize your page and gallery to prevent slowish downloads of resources. Read more about Galleria optimization here: <a class="reference internal" href="optimize.html"><span class="doc">Optimizing Galleria</span></a>.</p></li>
+<li><p>Load the CSS file manually instead, you can do this by simply adding a LINK stylesheet tag in the head with the theme CSS file.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="target-not-found">
+<h2>Target not found</h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Type: <strong>Fatal</strong></div>
+</div>
+</div></blockquote>
+<p>This error message will appear if the target element that you try to use as gallery could not be found.</p>
+<div class="section" id="id1">
+<h3>What you can do</h3>
+<ol class="arabic simple">
+<li><p>Double-check the jQuery selector when calling Galleria, and make sure that it is in the document.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="you-have-reached-the-browser-stylesheet-limit-31">
+<h2>You have reached the browser stylesheet limit (31)</h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Type: <strong>Fatal</strong></div>
+</div>
+</div></blockquote>
+<p>Internet Explorer has a stylesheet limit of 31. This error will appear if you reached that limit.</p>
+<div class="section" id="id2">
+<h3>What you can do</h3>
+<ol class="arabic simple">
+<li><p>Reduce the number of stylesheets used in the document. You can trick IE by using &#64;import instead.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="init-failed-gallery-instance-already-initialized">
+<h2>Init failed: Gallery instance already initialized</h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Type: <strong>Warning</strong></div>
+</div>
+</div></blockquote>
+<p>This warning will appear if you somehow managed to run the init function twice for the same instance.</p>
+<div class="section" id="id3">
+<h3>What you can do</h3>
+<ol class="arabic simple">
+<li><p>Go through your JavaScript logic and make sure that you are not doing anything fishy with the instance. Use only public methods and avoid custom constructors and other non-supported techniques.</p></li>
+<li><p>Make sure you are not calling loadTheme() twice.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="init-failed-no-theme-found">
+<h2>Init failed: No theme found</h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Type: <strong>Fatal</strong></div>
+</div>
+</div></blockquote>
+<p>When the gallery initializes, the theme should already be loaded and ready.
+But if it somehow is missing, this error will appear.</p>
+<div class="section" id="id4">
+<h3>What you can do</h3>
+<ol class="arabic simple">
+<li><p>Make sure you are using loadTheme() the right way</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="your-page-is-in-quirks-mode-galleria-may-not-render-correctly-please-validate-your-html">
+<h2>Your page is in Quirks mode, Galleria may not render correctly. Please validate your HTML.</h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Type: <strong>Warning</strong></div>
+</div>
+</div></blockquote>
+<p>This message appears in IE when it is in so called “Quirks Mode”. This usually happens when you have the wrong doctype.
+Galleria might still function in Quirks Mode, but there is a big chance that it will look/behave quirky.</p>
+<div class="section" id="id5">
+<h3>What you can do</h3>
+<ol class="arabic simple">
+<li><p>Add a doctype and validate your page HTML.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="could-not-extract-a-stage-height-from-the-css-traced-height">
+<h2>Could not extract a stage height from the CSS. Traced height: …</h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Type: <strong>Fatal</strong></div>
+</div>
+</div></blockquote>
+<p>After the gallery has initialized, it will make sure that the stage has sufficient height to continue the program.
+It targets the stage, because this is a good way of making sure that the CSS is loaded and has applied.</p>
+<p>It doesn’t really matter if you set width/height as options, because Galleria needs to extract <em>computed</em> measures.
+That means that the gallery and its parents must be visible in some way, otherwise it will fail.</p>
+<p>This message will appear if these requirements aren’t met within 5 seconds.</p>
+<div class="section" id="id6">
+<h3>What you can do</h3>
+<ol class="arabic">
+<li><p>Make sure that your gallery is visible so it can extract measures. If it is hidden in an accordion or inside a container with display: none, it will fail. You can try to set <a class="reference internal" href="../options/wait.html"><span class="doc">wait</span></a> to true if that is the case.</p></li>
+<li><p>Double-check the path to the theme CSS and make sure it works properly.</p></li>
+<li><p>If you have made a custom theme, make sure that the stage has a height.</p></li>
+<li><p>Make sure all elements on the page are loaded by putting the Galleria init script in a $( document ).ready(); block or the shorter version like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">function</span><span class="p">(){</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">init</span><span class="p">();</span>
+<span class="p">}());</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="could-not-extract-sufficient-width-height-of-the-gallery-container-traced-measures">
+<h2>Could not extract sufficient width/height of the gallery container. Traced measures: …</h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Type: <strong>Fatal</strong></div>
+</div>
+</div></blockquote>
+<p>The gallery needs a global width &amp; height of the container. It will try to extract them from the CSS or containing elements measures,
+or from the width/height options.</p>
+<p>If it fails to extract a width or height, this message will appear.</p>
+<div class="section" id="id7">
+<h3>What you can do</h3>
+<ol class="arabic simple">
+<li><p>Make sure that your gallery has a width and height. You can do that using CSS or by settings options. You can do that using CSS or by settings options (use max-width/max-height if you want it responsive, either one is sufficient)</p></li>
+<li><p>See Point 4 above</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="stage-width-or-height-is-too-small-to-show-the-gallery-traced-measures">
+<h2>Stage width or height is too small to show the gallery. Traced measures: …</h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Type: <strong>Fatal</strong></div>
+</div>
+</div></blockquote>
+<p>Again, this is another test that makes sure that the gallery has a width/height.
+Unlike the previous errors, this is specific for the stage measures, not the container.</p>
+<div class="section" id="id8">
+<h3>What you can do</h3>
+<ol class="arabic simple">
+<li><p>If you have made a custom theme, make sure that the stage has a width and height in the CSS.</p></li>
+<li><p>Follow the same instructions as for “Could not extract a stage height from the CSS” error.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="load-failed-no-data-found">
+<h2>Load failed: no data found.</h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Type: <strong>Warning</strong></div>
+</div>
+</div></blockquote>
+<p>This message appears if the data array is empty after parsing the data.
+It is a common message if you are using the Flickr or Picasa plugin and the plugin fails to load a set.</p>
+<div class="section" id="id9">
+<h3>What you can do</h3>
+<ol class="arabic simple">
+<li><p>If you are using the Flickr or Picasa plugin, double check the settings and make sure you are requesting public photos.</p></li>
+<li><p>If you are using JSON data, double-check the array and make sure it is valid.</p></li>
+<li><p>If you are using HTML, make sure that it is properly formatted.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="theme-at-path-could-not-load-check-theme-path">
+<h2>Theme at [path] could not load, check theme path.</h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Type: <strong>Fatal</strong></div>
+</div>
+</div></blockquote>
+<p>If you are using the loadTheme() function, this error will appear if the theme script fails to load after 5 seconds.
+This is somewhat common if you are working locally first and everything works, then when you upload to the server this error appears.
+In those cases, the most common thing is that the script is not readable by the browser, so you need to adjust the file permissions on the server.</p>
+<div class="section" id="id10">
+<h3>What you can do</h3>
+<ol class="arabic simple">
+<li><p>Triple-check the theme path, also make sure that it is readable without a 403 error. You can do that easily by pointing the browser directly to the script.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="could-not-extract-width-height-from-image">
+<h2>Could not extract width/height from image: …</h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Type: <strong>Warning</strong></div>
+</div>
+</div></blockquote>
+<p>Galleria loads the images and uses the width &amp; height to calculate scaling and proportions.
+If it for some reason can’t extract these measurements from the image, this warning will appear.</p>
+<p>This was much more common in version 1.2.5, but we fixed a bug in 1.2.6 that made it appear for no reason.</p>
+<div class="section" id="id11">
+<h3>What you can do</h3>
+<ol class="arabic simple">
+<li><p>Make sure that the images are fully readable and that there is no fishy Apache-cache for images going on.</p></li>
+<li><p>Make sure that the images are 100% valid and working.</p></li>
+<li><p>Turn off any extensions, such as AdBlock, when debugging.</p></li>
+<li><p>If you still get this warning, but everything seems to work fine, just turn off debug when deploying and it will be OK.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="image-not-found-source">
+<h2>Image not found: [source]</h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Type: <strong>Warning</strong></div>
+</div>
+</div></blockquote>
+<p>This error will be displayed if the image is not found after a couple of attempts.
+It might be a 404 or something else that prevents the browser from reading the image.
+You can define a <a class="reference internal" href="../options/dummy.html"><span class="doc">dummy</span></a> image that should be shown instead if this happens.</p>
+<div class="section" id="id12">
+<h3>What you can do</h3>
+<ol class="arabic simple">
+<li><p>Double check the image path.</p></li>
+<li><p>Make absolute sure that the image is fully readable, you can easily do that by pointing your browser directly to the image.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="could-not-scale-image-source">
+<h2>Could not scale image: [source]</h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Type: <strong>Warning</strong></div>
+</div>
+</div></blockquote>
+<p>This happens if the script could not read a valid width and height for the image container.
+Usually, this error happens when there is a problem with the gallery CSS, and it usually comes with other errors.</p>
+<div class="section" id="id13">
+<h3>What you can do</h3>
+<ol class="arabic simple">
+<li><p>Make sure that the theme CSS is in order.</p></li>
+<li><p>Follow the same instructions as for “Could not extract a stage height from the CSS” error.</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+      </div>
+  </div>
+
+              </main>
+          </div>
+          <div class="column" role="complementary">
+              
+<section class="widget_toc">
+        <ul>
+<li><a class="reference internal" href="#">Galleria error messages</a><ul>
+<li><a class="reference internal" href="#theme-css-could-not-load">Theme CSS could not load</a><ul>
+<li><a class="reference internal" href="#what-you-can-do">What you can do</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#target-not-found">Target not found</a><ul>
+<li><a class="reference internal" href="#id1">What you can do</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#you-have-reached-the-browser-stylesheet-limit-31">You have reached the browser stylesheet limit (31)</a><ul>
+<li><a class="reference internal" href="#id2">What you can do</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#init-failed-gallery-instance-already-initialized">Init failed: Gallery instance already initialized</a><ul>
+<li><a class="reference internal" href="#id3">What you can do</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#init-failed-no-theme-found">Init failed: No theme found</a><ul>
+<li><a class="reference internal" href="#id4">What you can do</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#your-page-is-in-quirks-mode-galleria-may-not-render-correctly-please-validate-your-html">Your page is in Quirks mode, Galleria may not render correctly. Please validate your HTML.</a><ul>
+<li><a class="reference internal" href="#id5">What you can do</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#could-not-extract-a-stage-height-from-the-css-traced-height">Could not extract a stage height from the CSS. Traced height: …</a><ul>
+<li><a class="reference internal" href="#id6">What you can do</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#could-not-extract-sufficient-width-height-of-the-gallery-container-traced-measures">Could not extract sufficient width/height of the gallery container. Traced measures: …</a><ul>
+<li><a class="reference internal" href="#id7">What you can do</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#stage-width-or-height-is-too-small-to-show-the-gallery-traced-measures">Stage width or height is too small to show the gallery. Traced measures: …</a><ul>
+<li><a class="reference internal" href="#id8">What you can do</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#load-failed-no-data-found">Load failed: no data found.</a><ul>
+<li><a class="reference internal" href="#id9">What you can do</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#theme-at-path-could-not-load-check-theme-path">Theme at [path] could not load, check theme path.</a><ul>
+<li><a class="reference internal" href="#id10">What you can do</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#could-not-extract-width-height-from-image">Could not extract width/height from image: …</a><ul>
+<li><a class="reference internal" href="#id11">What you can do</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#image-not-found-source">Image not found: [source]</a><ul>
+<li><a class="reference internal" href="#id12">What you can do</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#could-not-scale-image-source">Could not scale image: [source]</a><ul>
+<li><a class="reference internal" href="#id13">What you can do</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+
+<section class="widget_search">
+    
+<div id="searchbox" class="control">
+  <form role="search" class="search-form" action="../../search.html" method="GET">
+    <label for="quick-search-form">
+        <input type="search" id="quick-search-form" class="search-field" placeholder="Search docs" value="" name="q">
+    </label>
+    <button type="submit" class="search-submit">
+        <svg width="16" height="16" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:10;">
+            <g>
+                <circle cx="6.607" cy="6.607" r="5.201" style="fill:none;stroke-width:2px;"></circle>
+                <path d="M10.284,10.284L14.408,14.408" style="fill:none;stroke-width:2px;stroke-linecap:round;"></path>
+            </g>
+        </svg>
+    </button>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+</section>
+
+
+          </div>
+        </div>
+    
+    </div>
+  </section>
+ 
+
+
+<footer class="footer">
+  <div class="content has-text-centered">
+      <ul class="footer-menu">
+          <li><a href="../../download">Download</a></li>
+          <li><a href="../../themes">Themes</a></li>
+          <li><a href="../../docs">Documentation</a></li>
+          <li><a href="https://github.com/galleriajs/galleria">Github</a></li>
+      </ul>
+  </div>
+</footer>
+
+
+<script src="../../_static/main.min.js"></script>
+
+</body>
+</html>

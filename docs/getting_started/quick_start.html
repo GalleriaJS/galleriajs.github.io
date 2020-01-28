@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Quick start | Galleria 1.6 documentation – Galleria Documentation</title>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../../_static/favicon.ico">
+    <link rel="stylesheet" href="../../_static/style.min.css" type='text/css' media="all" />
+    
+    
+    
+        <link rel="index" title="Index" href="../../genindex.html"/>
+    
+    
+        <link rel="search" title="Search" href="../../search.html"/>
+    
+    <link rel="top" title="Galleria 1.6 documentation" href="../index.html"/>
+    
+    
+        <link rel="next" title="Using themes" href="../themes/using_themes.html"/>
+    
+    
+        <link rel="prev" title="Beginners Guide" href="beginners_guide.html"/>
+    
+
+  
+
+
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/galleria.min.js"></script>
+    
+    
+        <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js" defer></script>
+        <script type="text/javascript" src="../../_static/doctools.js" defer></script>
+        <script type="text/javascript" src="../../_static/language_data.js" defer></script>
+    
+    
+</head>
+
+<body class="docs">
+    <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+      <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+              Galleria
+            </a>
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div class="navbar-menu" id="navMenu">
+            <div class="navbar-end">
+              <a class="navbar-item" href="../../download">
+                Download
+              </a>
+              <a class="navbar-item" href="../../themes">
+                Themes
+              </a>
+              <a class="navbar-item" href="../../docs">
+                Documentation
+              </a>
+              </div>
+          </div>
+      </div>
+    </nav>
+
+
+  <section class="page-header">
+    <div class="container">
+        
+      <a href="../../docs">Documentation</a>
+      
+      » Quick start
+
+    </div>
+  </section>
+
+
+  
+  <section class="section">
+    <div class="container">
+    
+        <div class="columns is-variable is-8">
+          <div class="column is-three-quarters">
+              <main id="main" class="site-main" role="main">
+              
+  <div class="sphinx">
+      <div class="type">
+        
+  <div class="section" id="quick-start">
+<span id="id1"></span><h1>Quick start</h1>
+<div class="section" id="installation">
+<h2>Installation</h2>
+<ul class="simple">
+<li><p>Get the latest versions of Galleria and jQuery or use a <a class="reference internal" href="beginners_guide.html#cdn"><span class="std std-ref">cdn</span></a></p></li>
+<li><p>Place the galleria folder and additional themes in your project</p></li>
+<li><p>Include jQuery and Galleria on your web page and check the path to your theme</p></li>
+</ul>
+</div>
+<div class="section" id="add-data">
+<h2>Add data</h2>
+<p>There are several ways of adding image data to your gallery, but the simplest
+way is to add some HTML. Just put the images inside any container on
+the site. You can also add titles and descriptions using data attributed on the IMG tag:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;galleria&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/img/pic1.jpg&quot;</span> <span class="na">data-title</span><span class="o">=</span><span class="s">&quot;My title&quot;</span> <span class="na">data-description</span><span class="o">=</span><span class="s">&quot;My description&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/img/pic2.jpg&quot;</span> <span class="na">data-title</span><span class="o">=</span><span class="s">&quot;Another title&quot;</span> <span class="na">data-description</span><span class="o">=</span><span class="s">&quot;My &lt;em&gt;HTML&lt;/em&gt; description&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>If you want separate thumbnails (recommended), just add them as a link:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;galleria&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/img/large1.jpg&quot;</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/img/thumb1.jpg&quot;</span> <span class="na">data-title</span><span class="o">=</span><span class="s">&quot;My title&quot;</span> <span class="na">data-description</span><span class="o">=</span><span class="s">&quot;My description&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/img/large2.jpg&quot;</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/img/thumb2.jpg&quot;</span> <span class="na">data-title</span><span class="o">=</span><span class="s">&quot;Another title&quot;</span> <span class="na">data-description</span><span class="o">=</span><span class="s">&quot;My &lt;em&gt;HTML&lt;/em&gt; description&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>You may also add a separate larger image for fullscreen using the data-big attribute:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;galleria&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/img/large1.jpg&quot;</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/img/thumb1.jpg&quot;</span> <span class="na">data-big</span><span class="o">=</span><span class="s">&quot;/img/big1.jpg&quot;</span> <span class="na">data-title</span><span class="o">=</span><span class="s">&quot;My title&quot;</span> <span class="na">data-description</span><span class="o">=</span><span class="s">&quot;My description&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/img/large2.jpg&quot;</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/img/thumb2.jpg&quot;</span> <span class="na">data-big</span><span class="o">=</span><span class="s">&quot;/img/big2.jpg&quot;</span> <span class="na">data-title</span><span class="o">=</span><span class="s">&quot;Another title&quot;</span> <span class="na">data-description</span><span class="o">=</span><span class="s">&quot;My &lt;em&gt;HTML&lt;/em&gt; description&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Adding video from YouTube, Vimeo or Dailymotion is easy - just link an image to the video page. If you want Galleria to fetch a thumbnail, add an element with the class ‘video’ instead of a thumbnail:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;galleria&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://www.youtube.com/watch?v=GCZrz8siv4Q&quot;</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/img/thumb1.jpg&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://vimeo.com/12309423&quot;</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;video&quot;</span><span class="p">&gt;</span>Watch this on Vimeo!<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>You can also define the data as a JSON array:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;img1.jpg&#39;</span><span class="p">,</span>
+        <span class="nx">thumb</span><span class="o">:</span> <span class="s1">&#39;thumb1.jpg&#39;</span><span class="p">,</span>
+        <span class="nx">big</span><span class="o">:</span> <span class="s1">&#39;big1.jpg&#39;</span><span class="p">,</span>
+        <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;my first image&#39;</span><span class="p">,</span>
+        <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;Lorem ipsum caption&#39;</span><span class="p">,</span>
+        <span class="nx">link</span><span class="o">:</span> <span class="s1">&#39;http://domain.com&#39;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nx">video</span><span class="o">:</span> <span class="s1">&#39;http://www.youtube.com/watch?v=GCZrz8siv4Q&#39;</span><span class="p">,</span>
+        <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;my second image&#39;</span><span class="p">,</span>
+        <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;Another caption&#39;</span>
+    <span class="p">}</span>
+<span class="p">];</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Then just pass this array as the <a class="reference internal" href="../options/dataSource.html"><span class="doc">dataSource</span></a> option. For a more in-depth explanation on how Galleria handles image data or how to use srcset and sizes, read <a class="reference internal" href="../references/data.html"><span class="doc">Using image data</span></a>.</p>
+</div>
+<div class="section" id="activate-galleria">
+<h2>Activate Galleria</h2>
+<p>When the data is added, you need to load a theme and activate Galleria.
+Use the Galleria.loadTheme and then the galleria() function on the selected jQuery object:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>(function() {
+    Galleria.loadTheme(&#39;galleria/themes/classic/galleria.classic.min.js&#39;);
+    Galleria.run(&#39;.galleria&#39;);
+}());
+</pre></div>
+</div>
+</div>
+<div class="section" id="adding-options">
+<h2>Adding options</h2>
+<p>Use the Galleria.configure function to apply global options. You can define an object to apply
+multiple options, or two arguments (key/value) to apply a single option.
+Please visit <a class="reference internal" href="../options/index.html"><span class="doc">Options</span></a> for a complete list.</p>
+<p>Example options:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>Galleria.configure({
+    imageCrop: true,
+    transition: &#39;fade&#39;
+});
+</pre></div>
+</div>
+<p>Configuring a single options:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>Galleria.configure(&#39;imageCrop&#39;, true);
+</pre></div>
+</div>
+<p>To apply options to a specific instance, use the second argument in <cite>Galleria.run</cite>, f.ex:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>Galleria.run(&#39;.galleria&#39;, {
+    theme: &#39;twelve&#39;,
+    imageCrop: true
+})
+</pre></div>
+</div>
+</div>
+<div class="section" id="optimize-galleria">
+<h2>Optimize Galleria</h2>
+<p>We strongly recommend you to read through <a class="reference internal" href="../references/optimize.html"><span class="doc">Optimizing Galleria</span></a> to optimize your gallery.</p>
+</div>
+<div class="section" id="using-the-api">
+<h2>Using the API</h2>
+<p>Further customizations can be done using the <a class="reference internal" href="../api/methods.html"><span class="doc">API Methods</span></a> and <a class="reference internal" href="../api/events.html"><span class="doc">Events</span></a>.
+You’ll have access to them using the Galleria.ready function:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>Galleria.ready(function(options) {
+
+    // &#39;this&#39; is the gallery instance
+    // &#39;options&#39; is the gallery options
+
+    this.bind(&#39;image&#39;, function(e) {
+        Galleria.log(&#39;Now viewing &#39; + e.imageTarget.src);
+    });
+});
+</pre></div>
+</div>
+<p>Another option if you just want to listen to events is using the Galleria.on() function:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>Galleria.on(&#39;image&#39;, function(e) {
+    Galleria.log(&#39;Now viewing &#39; + e.imageTarget.src);
+});
+</pre></div>
+</div>
+<p>You can also access the methods inside the jQuery.data object of the element you attached the gallery to, f.ex:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>$(&#39;.galleria&#39;).data(&#39;galleria&#39;).enterFullscreen();
+</pre></div>
+</div>
+<p>Read <a class="reference internal" href="../references/extending.html"><span class="doc">Extending Galleria</span></a> for more information about using the API.</p>
+<p><em>Good luck!</em></p>
+</div>
+</div>
+
+
+      </div>
+  </div>
+
+              </main>
+          </div>
+          <div class="column" role="complementary">
+              
+<section class="widget_toc">
+        <ul>
+<li><a class="reference internal" href="#">Quick start</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#add-data">Add data</a></li>
+<li><a class="reference internal" href="#activate-galleria">Activate Galleria</a></li>
+<li><a class="reference internal" href="#adding-options">Adding options</a></li>
+<li><a class="reference internal" href="#optimize-galleria">Optimize Galleria</a></li>
+<li><a class="reference internal" href="#using-the-api">Using the API</a></li>
+</ul>
+</li>
+</ul>
+
+</section>
+
+<section class="widget_search">
+    
+<div id="searchbox" class="control">
+  <form role="search" class="search-form" action="../../search.html" method="GET">
+    <label for="quick-search-form">
+        <input type="search" id="quick-search-form" class="search-field" placeholder="Search docs" value="" name="q">
+    </label>
+    <button type="submit" class="search-submit">
+        <svg width="16" height="16" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:10;">
+            <g>
+                <circle cx="6.607" cy="6.607" r="5.201" style="fill:none;stroke-width:2px;"></circle>
+                <path d="M10.284,10.284L14.408,14.408" style="fill:none;stroke-width:2px;stroke-linecap:round;"></path>
+            </g>
+        </svg>
+    </button>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+</section>
+
+
+          </div>
+        </div>
+    
+    </div>
+  </section>
+ 
+
+
+<footer class="footer">
+  <div class="content has-text-centered">
+      <ul class="footer-menu">
+          <li><a href="../../download">Download</a></li>
+          <li><a href="../../themes">Themes</a></li>
+          <li><a href="../../docs">Documentation</a></li>
+          <li><a href="https://github.com/galleriajs/galleria">Github</a></li>
+      </ul>
+  </div>
+</footer>
+
+
+<script src="../../_static/main.min.js"></script>
+
+</body>
+</html>

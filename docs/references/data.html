@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Using image data | Galleria 1.6 documentation – Galleria Documentation</title>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../../_static/favicon.ico">
+    <link rel="stylesheet" href="../../_static/style.min.css" type='text/css' media="all" />
+    
+    
+    
+        <link rel="index" title="Index" href="../../genindex.html"/>
+    
+    
+        <link rel="search" title="Search" href="../../search.html"/>
+    
+    <link rel="top" title="Galleria 1.6 documentation" href="../index.html"/>
+    
+    
+        <link rel="next" title="DOM Structure" href="dom.html"/>
+    
+    
+        <link rel="prev" title="Extending Galleria" href="extending.html"/>
+    
+
+  
+
+
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/galleria.min.js"></script>
+    
+    
+        <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js" defer></script>
+        <script type="text/javascript" src="../../_static/doctools.js" defer></script>
+        <script type="text/javascript" src="../../_static/language_data.js" defer></script>
+    
+    
+</head>
+
+<body class="docs">
+    <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+      <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+              Galleria
+            </a>
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div class="navbar-menu" id="navMenu">
+            <div class="navbar-end">
+              <a class="navbar-item" href="../../download">
+                Download
+              </a>
+              <a class="navbar-item" href="../../themes">
+                Themes
+              </a>
+              <a class="navbar-item" href="../../docs">
+                Documentation
+              </a>
+              </div>
+          </div>
+      </div>
+    </nav>
+
+
+  <section class="page-header">
+    <div class="container">
+        
+      <a href="../../docs">Documentation</a>
+      
+      » Using image data
+
+    </div>
+  </section>
+
+
+  
+  <section class="section">
+    <div class="container">
+    
+        <div class="columns is-variable is-8">
+          <div class="column is-three-quarters">
+              <main id="main" class="site-main" role="main">
+              
+  <div class="sphinx">
+      <div class="type">
+        
+  <div class="section" id="using-image-data">
+<h1>Using image data</h1>
+<p>Galleria uses a data model that contains all image data that will be used for the Gallery.
+There are several ways of defining this data and this document attempts to explain how the data can be passed into Galleria using different techniques.</p>
+<p>The data structure is best defined using a JSON array, since JavaScript plays well with JSON and Galleria uses it internally.
+But the beginner will most likely start with plain HTML that Galleria reads and converts to a data structure.</p>
+<div class="section" id="definition">
+<h2>Definition</h2>
+<p>The image data object that Galleria uses is defined like this:</p>
+<ul class="simple">
+<li><p><strong>thumb</strong> – the thumbnail image (optional)</p></li>
+<li><p><strong>image</strong> – the main image (required)</p></li>
+<li><p><strong>big</strong> – the big image for fullscreen mode (optional)</p></li>
+<li><p><strong>title</strong> – the image title (optional)</p></li>
+<li><p><strong>description</strong> – the image description (optional)</p></li>
+<li><p><strong>link</strong> – the image link url (optional)</p></li>
+<li><p><strong>layer</strong> – A layer of HTML that will be displayed on top of the content (optional)</p></li>
+<li><p><strong>video</strong> – An URL to a video, as per 1.2.7 we support Vimeo and Youtube URLs.</p></li>
+<li><p><strong>iframe</strong> – An URL to be displayed in an iframe.</p></li>
+<li><p><strong>original</strong> a reference to the original IMG element (optional)</p></li>
+</ul>
+<p>Optional ‘srcset’ and ‘sizes’ (see the <a class="reference internal" href="faq.html#faq"><span class="std std-ref">faq</span></a> for additional information):</p>
+<ul class="simple">
+<li><p><strong>thumbsrcset</strong> – the thumbnail image srcset</p></li>
+<li><p><strong>thumbsizes</strong> – the thumbnail image sizes</p></li>
+<li><p><strong>imagesrcset</strong> – the main image srcset</p></li>
+<li><p><strong>imagesizes</strong> – the main image sizes</p></li>
+<li><p><strong>bigsrcset</strong> – the big image srcset</p></li>
+<li><p><strong>bigsizes</strong> – the big image sizes</p></li>
+</ul>
+<p>You can provide this data to Galleria in a number of ways. The easiest way to start is probably by using plain HTML, but you’ll get more control using JSON.</p>
+</div>
+<div class="section" id="using-html">
+<h2>1. Using HTML</h2>
+<p>The most common way for a quick start is to let Galleria parse the HTML and extract data itself.</p>
+<p>By default, Galleria parses your HTML in a specific way. The minimum HTML required for Galleria to function is this:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;image.jpg&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>You can place the <code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code> tags anywhere inside the container from where you call galleria. This will give Galleria the following stripped data structure:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nx">thumb</span><span class="o">:</span> <span class="s1">&#39;image.jpg&#39;</span><span class="p">,</span>
+    <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;image.jpg&#39;</span><span class="p">,</span>
+    <span class="nx">big</span><span class="o">:</span> <span class="s1">&#39;image.jpg&#39;</span><span class="p">,</span>
+    <span class="nx">original</span><span class="o">:</span> <span class="p">[</span><span class="nx">IMG</span> <span class="nx">element</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note that Galleria will use the image.jpg file to create thumbnails and the big image if you do not provide separate files for these views.</p>
+<div class="section" id="captions-meta-data">
+<h3>Captions &amp; meta data</h3>
+<p>If you want to extract meta data from the HTML source such as title &amp; description, you can provide this as <code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code> attributes:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;image.jpg&quot;</span> <span class="nx">data</span><span class="o">-</span><span class="nx">title</span><span class="o">=</span><span class="s2">&quot;My title&quot;</span> <span class="nx">data</span><span class="o">-</span><span class="nx">description</span><span class="o">=</span><span class="s2">&quot;My &lt;strong&gt;description&lt;/strong&gt;&quot;</span> <span class="nx">data</span><span class="o">-</span><span class="nx">link</span><span class="o">=</span><span class="s2">&quot;http://my.destination.com&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Now you’ll get the following data:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nx">thumb</span><span class="o">:</span> <span class="s1">&#39;image.jpg&#39;</span><span class="p">,</span>
+    <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;image.jpg&#39;</span><span class="p">,</span>
+    <span class="nx">big</span><span class="o">:</span> <span class="s1">&#39;image.jpg&#39;</span><span class="p">,</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;My title&#39;</span><span class="p">,</span>
+    <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;My &lt;strong&gt;description&lt;/strong&gt;&#39;</span><span class="p">,</span>
+    <span class="nx">link</span><span class="o">:</span> <span class="s1">&#39;http://my.destination.com&#39;</span><span class="p">,</span>
+    <span class="nx">original</span><span class="o">:</span> <span class="p">[</span><span class="nx">IMG</span> <span class="nx">element</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="separate-thumbnails">
+<h3>Separate thumbnails</h3>
+<p>If you want to provide separate thumbnails (highly recommended), just link the main image using <code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code> tags:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>&lt;a href=&quot;image.jpg&quot;&gt;&lt;img src=&quot;thumb.jpg&quot;&gt;&lt;/a&gt;
+</pre></div>
+</div>
+<p>Now you’ll get the following data:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nx">thumb</span><span class="o">:</span> <span class="s1">&#39;thumb.jpg&#39;</span><span class="p">,</span>
+    <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;image.jpg&#39;</span><span class="p">,</span>
+    <span class="nx">big</span><span class="o">:</span> <span class="s1">&#39;image.jpg&#39;</span><span class="p">,</span>
+    <span class="nx">original</span><span class="o">:</span> <span class="p">[</span><span class="nx">IMG</span> <span class="nx">element</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To define srcset or sizes on the <code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code> tag you can use ‘data-srcset’ and ‘data-sizes’.</p>
+<p>&lt;a href=”image.jpg” data-srcset=”image.jpg 1x, <a class="reference external" href="mailto:image&#37;&#52;&#48;2x&#46;jpg">image<span>&#64;</span>2x<span>&#46;</span>jpg</a> 2x”&gt;&lt;img src=”thumb.jpg” srcset=”thumb.jpg 1x, <a class="reference external" href="mailto:thumb&#37;&#52;&#48;2x&#46;jpg">thumb<span>&#64;</span>2x<span>&#46;</span>jpg</a> 2x”&gt;&lt;/a&gt;</p>
+</div>
+<div class="section" id="separate-fullscreen-image">
+<h3>Separate fullscreen image</h3>
+<p>You can also specify a separate larger image for fullscreen &amp; lightbox using the data-big attribute on the IMG tag:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>&lt;a href=&quot;image.jpg&quot;&gt;&lt;img data-big=&quot;big.jpg&quot; src=&quot;thumb.jpg&quot;&gt;&lt;/a&gt;
+</pre></div>
+</div>
+<p>This will give you:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nx">thumb</span><span class="o">:</span> <span class="s1">&#39;thumb.jpg&#39;</span><span class="p">,</span>
+    <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;image.jpg&#39;</span><span class="p">,</span>
+    <span class="nx">big</span><span class="o">:</span> <span class="s1">&#39;big.jpg&#39;</span><span class="p">,</span>
+    <span class="nx">original</span><span class="o">:</span> <span class="p">[</span><span class="nx">IMG</span> <span class="nx">element</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For ‘srcset’ or ‘sizes’ add data-bigsrcset / data-bigsizes</p>
+<blockquote>
+<div><p>&lt;a href=”image.jpg”&gt;&lt;img data-big=”big.jpg” data-bigsrcset=”big.jpg 1x, <a class="reference external" href="mailto:big&#37;&#52;&#48;2x&#46;jpg">big<span>&#64;</span>2x<span>&#46;</span>jpg</a> 2x” src=”thumb.jpg”&gt;&lt;/a&gt;</p>
+</div></blockquote>
+<p>This will give you:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nx">thumb</span><span class="o">:</span> <span class="s1">&#39;thumb.jpg&#39;</span><span class="p">,</span>
+    <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;image.jpg&#39;</span><span class="p">,</span>
+    <span class="nx">big</span><span class="o">:</span> <span class="s1">&#39;big.jpg&#39;</span><span class="p">,</span>
+    <span class="nx">bigsrcset</span><span class="o">:</span> <span class="s1">&#39;big.jpg 1x, big@2x.jpg 2x&#39;</span><span class="p">,</span>
+    <span class="nx">original</span><span class="o">:</span> <span class="p">[</span><span class="nx">IMG</span> <span class="nx">element</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adding-video-in-the-slideshow">
+<h3>Adding video in the slideshow</h3>
+<p>Since version 1.2.7 Galleria supports Youtube, Vimeo and Dailymotion embeds. The way it works is that you pass a full URL to the movie
+and then Galleria will parse and create the video frame for you.</p>
+<p>You can provide your custom thumbnail, or Galleria will fetch a thumbnail from the provider.</p>
+<p>How to add a youtube movie with a custom thumbnail:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>&lt;a href=&quot;http://www.youtube.com/watch?v=GCZrz8siv4Q&quot;&gt;&lt;img src=&quot;thumb.jpg&quot;&gt;&lt;/a&gt;
+</pre></div>
+</div>
+<p>Galleria will parse the video URL and other options set and create the iframe URL for you:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nx">thumb</span><span class="o">:</span> <span class="s1">&#39;thumb.jpg&#39;</span><span class="p">,</span>
+    <span class="nx">iframe</span><span class="o">:</span> <span class="s1">&#39;http://www.youtube.com/embed/GCZrz8siv4Q?wmode=opaque&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You can also add display options using the <strong>vimeo</strong>, <strong>youtube</strong> and <strong>dailymotion</strong> options.</p>
+<p>If you want Galleria to fetch thumbnails from the provider API’s, just provide an element with a ‘video’ class instead of a thumbnail:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>&lt;a href=&quot;http://www.youtube.com/watch?v=GCZrz8siv4Q&quot;&gt;&lt;span class=&quot;video&quot;&gt;Watch this at YouTube&lt;/span&gt;&lt;/a&gt;
+</pre></div>
+</div>
+<p>Since 1.3, Galleria supports poster images for videos. It will automatically fetch posters from its provider, but you
+may also manually add one using the <code class="docutils literal notranslate"><span class="pre">data-image</span></code> attribute:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>&lt;a href=&quot;http://www.youtube.com/watch?v=GCZrz8siv4Q&quot;&gt;&lt;span class=&quot;video&quot; data-image=&quot;/myposter.jpg&quot;&gt;Watch this at YouTube&lt;/span&gt;&lt;/a&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="displaying-iframes">
+<h3>Displaying iframes</h3>
+<p>Since version 1.2.7, Galleria also supports iframes to be displayed instead of an image. Here’s how to add an iframe:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>&lt;a href=&quot;http://aino.com&quot;&gt;&lt;img class=&quot;iframe&quot; src=&quot;thumb.jpg&quot;&gt;&lt;/a&gt;
+</pre></div>
+</div>
+<p>This will give you:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nx">thumb</span><span class="o">:</span> <span class="s1">&#39;thumb.jpg&#39;</span><span class="p">,</span>
+    <span class="nx">iframe</span><span class="o">:</span> <span class="s1">&#39;http://aino.com&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You can also skip the thumbnail by adding an element with the class ‘iframe’:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>&lt;a href=&quot;http://aino.com&quot;&gt;&lt;span class=&quot;iframe&quot;&gt;Check out aino.com&lt;/span&gt;&lt;/a&gt;
+</pre></div>
+</div>
+<p>The thumbnail container will then get the class ‘frame’, so you can style it as you wish.</p>
+</div>
+<div class="section" id="adding-a-layer-above-the-content">
+<h3>Adding a layer above the content</h3>
+<p>Galleria also supports a layer of HTML content that can will be placed above the image or video.
+The layer will follow the transitions (unless you disable it using the layerFollow option) and expand on fullscreen.</p>
+<p>A layer can be defined using the data-layer attribute:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">img</span> <span class="nx">data</span><span class="o">-</span><span class="nx">big</span><span class="o">=</span><span class="s2">&quot;big.jpg&quot;</span> <span class="nx">data</span><span class="o">-</span><span class="nx">layer</span><span class="o">=</span><span class="s2">&quot;&lt;h2&gt;A title&lt;/h2&gt;&lt;p&gt;Some content&lt;/p&gt;&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>You can also define a layer using JSON or dataConfig, read further for more information about these extraction methods.</p>
+</div>
+</div>
+<div class="section" id="using-html-with-dataconfig">
+<h2>2. Using HTML with dataConfig</h2>
+<p>You can also use the dataConfig option combined with HTML to obtain richer data from other sources to provide HTML captions or other custom data types.</p>
+<p>This is also useful if you want to add a richer markup for better accessibility.</p>
+<p>An example on how to use the dataConfig option to extract HTML captions from <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> tags:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>&lt;div class=&quot;galleria&quot;&gt;
+    &lt;li&gt;
+        &lt;img src=&quot;myimage.jpg&quot;&gt;
+        &lt;p&gt;My caption is &lt;strong&gt;gr8&lt;/strong&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;img src=&quot;myimage2.jpg&quot;&gt;
+        &lt;p&gt;My other caption is also &lt;em&gt;gr8&lt;/em&gt;&lt;/p&gt;
+    &lt;/li&gt;
+&lt;/div&gt;
+&lt;script&gt;
+Galleria.run(&#39;.galleria&#39;, {
+    dataConfig: function(img) {
+        return {
+            description: $(img).next(&#39;p&#39;).html()
+        }
+    }
+});
+</pre></div>
+</div>
+<p>The dataConfig option function should return an object with any data key/value you wish to provide. If the key existed elsewhere, this will override it.
+In the example above, we extracted the HTML from the next paragraph after the image element and told Galleria that this is the description data.</p>
+</div>
+<div class="section" id="using-json">
+<h2>3. Using JSON</h2>
+<p>Another handy way to serve data is to provide a JSON array to Galleria. This method is preferred by many developers, since you gain more control over what is served to the client, and when.
+By serving HTML to the client and then let Galleria parse that HTML into Galleria data might be a performance downer if you don’t provide separate thumbnails, since the client has to download all images at once.</p>
+<p>Providing JSON data to Galleria is really easy:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>&lt;div class=&quot;galleria&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+var data = [
+    {
+        thumb: &#39;thumb.jpg&#39;,
+        image: &#39;image.jpg&#39;,
+        big: &#39;big.jpg&#39;,
+        title: &#39;My title&#39;,
+        description: &#39;My description&#39;,
+        link: &#39;http://my.destination.com&#39;,
+        layer: &#39;&lt;div&gt;&lt;h2&gt;This image is gr8&lt;/h2&gt;&lt;p&gt;And this text will be on top of the image&lt;/p&gt;&#39;
+    },
+    {
+        video: &#39;http://www.youtube.com/watch?v=GCZrz8siv4Q&#39;,
+        title: &#39;My second title&#39;,
+        description: &#39;My second description&#39;
+    },
+    {
+        thumb: &#39;thumb.jpg&#39;,
+        iframe: &#39;http://aino.com&#39;,
+        title: &#39;My third title&#39;
+    }
+];
+Galleria.run(&#39;.galleria&#39;, {
+    dataSource: data
+});
+</pre></div>
+</div>
+<p>Using JSON also makes sense if you want to modify the data using <code class="docutils literal notranslate"><span class="pre">push()</span></code> and <code class="docutils literal notranslate"><span class="pre">splice()</span></code>.
+Remember that you can also use <code class="docutils literal notranslate"><span class="pre">load()</span></code> to load an entire different data set into a Galleria instance at runtime.
+This makes it easy to create links to separate galleries, f.ex photography categories.</p>
+<p>Since version 1.6.0, Galleria includes an <span class="xref std std-ref">loadJSON</span> function as a shortcut for fetching JSON form your server.</p>
+</div>
+</div>
+
+
+      </div>
+  </div>
+
+              </main>
+          </div>
+          <div class="column" role="complementary">
+              
+<section class="widget_toc">
+        <ul>
+<li><a class="reference internal" href="#">Using image data</a><ul>
+<li><a class="reference internal" href="#definition">Definition</a></li>
+<li><a class="reference internal" href="#using-html">1. Using HTML</a><ul>
+<li><a class="reference internal" href="#captions-meta-data">Captions &amp; meta data</a></li>
+<li><a class="reference internal" href="#separate-thumbnails">Separate thumbnails</a></li>
+<li><a class="reference internal" href="#separate-fullscreen-image">Separate fullscreen image</a></li>
+<li><a class="reference internal" href="#adding-video-in-the-slideshow">Adding video in the slideshow</a></li>
+<li><a class="reference internal" href="#displaying-iframes">Displaying iframes</a></li>
+<li><a class="reference internal" href="#adding-a-layer-above-the-content">Adding a layer above the content</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-html-with-dataconfig">2. Using HTML with dataConfig</a></li>
+<li><a class="reference internal" href="#using-json">3. Using JSON</a></li>
+</ul>
+</li>
+</ul>
+
+</section>
+
+<section class="widget_search">
+    
+<div id="searchbox" class="control">
+  <form role="search" class="search-form" action="../../search.html" method="GET">
+    <label for="quick-search-form">
+        <input type="search" id="quick-search-form" class="search-field" placeholder="Search docs" value="" name="q">
+    </label>
+    <button type="submit" class="search-submit">
+        <svg width="16" height="16" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:10;">
+            <g>
+                <circle cx="6.607" cy="6.607" r="5.201" style="fill:none;stroke-width:2px;"></circle>
+                <path d="M10.284,10.284L14.408,14.408" style="fill:none;stroke-width:2px;stroke-linecap:round;"></path>
+            </g>
+        </svg>
+    </button>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+</section>
+
+
+          </div>
+        </div>
+    
+    </div>
+  </section>
+ 
+
+
+<footer class="footer">
+  <div class="content has-text-centered">
+      <ul class="footer-menu">
+          <li><a href="../../download">Download</a></li>
+          <li><a href="../../themes">Themes</a></li>
+          <li><a href="../../docs">Documentation</a></li>
+          <li><a href="https://github.com/galleriajs/galleria">Github</a></li>
+      </ul>
+  </div>
+</footer>
+
+
+<script src="../../_static/main.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Utilities | Galleria 1.6 documentation – Galleria Documentation</title>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../../_static/favicon.ico">
+    <link rel="stylesheet" href="../../_static/style.min.css" type='text/css' media="all" />
+    
+    
+    
+        <link rel="index" title="Index" href="../../genindex.html"/>
+    
+    
+        <link rel="search" title="Search" href="../../search.html"/>
+    
+    <link rel="top" title="Galleria 1.6 documentation" href="../index.html"/>
+    
+    
+    
+        <link rel="prev" title="Events" href="events.html"/>
+    
+
+  
+
+
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/galleria.min.js"></script>
+    
+    
+        <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js" defer></script>
+        <script type="text/javascript" src="../../_static/doctools.js" defer></script>
+        <script type="text/javascript" src="../../_static/language_data.js" defer></script>
+    
+    
+</head>
+
+<body class="docs">
+    <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+      <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+              Galleria
+            </a>
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div class="navbar-menu" id="navMenu">
+            <div class="navbar-end">
+              <a class="navbar-item" href="../../download">
+                Download
+              </a>
+              <a class="navbar-item" href="../../themes">
+                Themes
+              </a>
+              <a class="navbar-item" href="../../docs">
+                Documentation
+              </a>
+              </div>
+          </div>
+      </div>
+    </nav>
+
+
+  <section class="page-header">
+    <div class="container">
+        
+      <a href="../../docs">Documentation</a>
+      
+      » Utilities
+
+    </div>
+  </section>
+
+
+  
+  <section class="section">
+    <div class="container">
+    
+        <div class="columns is-variable is-8">
+          <div class="column is-three-quarters">
+              <main id="main" class="site-main" role="main">
+              
+  <div class="sphinx">
+      <div class="type">
+        
+  <div class="section" id="utilities">
+<h1>Utilities</h1>
+<div class="section" id="static-methods">
+<h2>Static methods</h2>
+<div class="section" id="galleria-run-selector-options">
+<h3>Galleria.run( selector, options )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns Galleria</div>
+</div>
+</div></blockquote>
+<p>This function initializes the gallery. The first argument is the jQuery selector of
+element(s) you want to load the gallery to. The second argument (optional) is an object
+of configuration options:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// with default options</span>
+<span class="nx">Galleria</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">&#39;.galleria&#39;</span><span class="p">);</span>
+
+<span class="c1">// with custom options</span>
+<span class="nx">Galleria</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">&#39;.galleria&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">imageCrop</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">transition</span><span class="o">:</span> <span class="s1">&#39;fade&#39;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="galleria-configure-options">
+<h3>Galleria.configure( options )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns Galleria</div>
+</div>
+</div></blockquote>
+<p>This function configures global options to every gallery on the page.</p>
+<p>You can add multiple options like this:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Galleria</span><span class="p">.</span><span class="nx">configure</span><span class="p">({</span>
+    <span class="nx">thumbCrop</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">lightbox</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Or single options using key/value:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Galleria</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="s1">&#39;imageCrop&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The options will be applied to the gallery no matter when it’s called. If the gallery
+is not yet ready, they will be applied when it is. If the gallery is already running,
+the options will be applied at run-time.</p>
+<p>If you want to apply options for a specific gallery, use the <code class="docutils literal notranslate"><span class="pre">.setOptions()</span></code> API call,
+or apply the options when calling <code class="docutils literal notranslate"><span class="pre">Galleria.run()</span></code>:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Galleria</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">&#39;.galleria&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">thumbCrop</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="galleria-ready-function">
+<h3>Galleria.ready( function )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns Galleria</div>
+</div>
+</div></blockquote>
+<p>Use this function to bind bind custom functionality to each gallery instance
+when the gallery is loaded. Example:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Galleria</span><span class="p">.</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">Galleria</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Gallery ready&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span> <span class="c1">// the Galleria instance</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="galleria-on-event-fn">
+<h3>Galleria.on( event, fn )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns Galleria</div>
+</div>
+</div></blockquote>
+<p>Convenient global event listener for all instances. You can use this instead of <cite>bind()</cite>
+as a static function. Example on how to listen to when an image is shown
+and log the current image source path:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Galleria</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">Galleria</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">e</span><span class="p">.</span><span class="nx">imageTarget</span><span class="p">.</span><span class="nx">src</span> <span class="p">);</span> <span class="c1">// e is the event object</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="galleria-log-msg-msg">
+<h3>Galleria.log( msg [,msg,…] )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns Galleria</div>
+</div>
+</div></blockquote>
+<p>A helper method for cross-browser logging. It uses the console log if available
+otherwise it falls back to the opera debugger and finally <code class="docutils literal notranslate"><span class="pre">alert()</span></code></p>
+</div>
+<div class="section" id="galleria-raise-msg">
+<h3>Galleria.raise( msg )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns Galleria</div>
+</div>
+</div></blockquote>
+<p>This method will raise an error message if Galleria.debug is true. Useful if
+you have sensitive code that needs to throw an error if not completed when
+developing.</p>
+</div>
+<div class="section" id="galleria-get-index">
+<h3>Galleria.get( [index] )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns instance or array of instances</div>
+</div>
+</div></blockquote>
+<p>Use this to fetch a galleria instance from anywhere on your page. If you only
+have one galleria gallery, <code class="docutils literal notranslate"><span class="pre">Galleria.get(0)</span></code> will return the first (and only)
+gallery. If you call <code class="docutils literal notranslate"><span class="pre">Galleria.get()</span></code> without specifying an index, it will
+return an array with all galleries initiated. Example:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Galleria</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">&#39;.galleria&#39;</span><span class="p">);</span> <span class="c1">// initialize the galleria</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#play&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">Galleria</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">play</span><span class="p">();</span> <span class="c1">// will start slideshow when the element #play is clicked</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="galleria-loadtheme-url">
+<span id="loadtheme"></span><h3>Galleria.loadTheme( url )</h3>
+<blockquote>
+<div><div class="line-block">
+<div class="line">returns Galleria</div>
+</div>
+</div></blockquote>
+<p>This methods loads a theme into galleria. It will insert the necessary scripts
+and styles into the document and provide a event that will hold the galleria
+caller until the theme is fully loaded. The <code class="docutils literal notranslate"><span class="pre">url</span></code> must be a relative or
+absolute path to the theme .js file. Example:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// start loading the classic theme</span>
+<span class="nx">Galleria</span><span class="p">.</span><span class="nx">loadTheme</span><span class="p">(</span><span class="s1">&#39;galleria/themes/classic/galleria.classic.js&#39;</span><span class="p">)</span><span class="o">:</span>
+
+<span class="c1">// initiate the gallery</span>
+<span class="nx">Galleria</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">&#39;.galleria&#39;</span><span class="p">);</span>
+
+<span class="c1">// when the theme is fully loaded, galleria will run.</span>
+</pre></div>
+</div>
+<p>Since 1.4, you can also load multiple themes:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Galleria</span><span class="p">.</span><span class="nx">loadTheme</span><span class="p">(</span><span class="s1">&#39;galleria/themes/classic/galleria.classic.js&#39;</span><span class="p">)</span><span class="o">:</span>
+<span class="nx">Galleria</span><span class="p">.</span><span class="nx">loadTheme</span><span class="p">(</span><span class="s1">&#39;galleria/themes/twelve/galleria.twelve.js&#39;</span><span class="p">)</span><span class="o">:</span>
+
+<span class="c1">// initiate the gallery</span>
+<span class="nx">Galleria</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">&#39;.galleria.classic&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">theme</span><span class="o">:</span> <span class="s1">&#39;classic&#39;</span> <span class="p">});</span>
+<span class="nx">Galleria</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">&#39;.galleria.twelve&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">theme</span><span class="o">:</span> <span class="s1">&#39;twelve&#39;</span> <span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="galleria-getloadedthemes">
+<h3>Galleria.getLoadedThemes()</h3>
+<p>Returns an array with all loaded themes</p>
+</div>
+</div>
+</div>
+
+
+      </div>
+  </div>
+
+              </main>
+          </div>
+          <div class="column" role="complementary">
+              
+<section class="widget_toc">
+        <ul>
+<li><a class="reference internal" href="#">Utilities</a><ul>
+<li><a class="reference internal" href="#static-methods">Static methods</a><ul>
+<li><a class="reference internal" href="#galleria-run-selector-options">Galleria.run( selector, options )</a></li>
+<li><a class="reference internal" href="#galleria-configure-options">Galleria.configure( options )</a></li>
+<li><a class="reference internal" href="#galleria-ready-function">Galleria.ready( function )</a></li>
+<li><a class="reference internal" href="#galleria-on-event-fn">Galleria.on( event, fn )</a></li>
+<li><a class="reference internal" href="#galleria-log-msg-msg">Galleria.log( msg [,msg,…] )</a></li>
+<li><a class="reference internal" href="#galleria-raise-msg">Galleria.raise( msg )</a></li>
+<li><a class="reference internal" href="#galleria-get-index">Galleria.get( [index] )</a></li>
+<li><a class="reference internal" href="#galleria-loadtheme-url">Galleria.loadTheme( url )</a></li>
+<li><a class="reference internal" href="#galleria-getloadedthemes">Galleria.getLoadedThemes()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+
+<section class="widget_search">
+    
+<div id="searchbox" class="control">
+  <form role="search" class="search-form" action="../../search.html" method="GET">
+    <label for="quick-search-form">
+        <input type="search" id="quick-search-form" class="search-field" placeholder="Search docs" value="" name="q">
+    </label>
+    <button type="submit" class="search-submit">
+        <svg width="16" height="16" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:10;">
+            <g>
+                <circle cx="6.607" cy="6.607" r="5.201" style="fill:none;stroke-width:2px;"></circle>
+                <path d="M10.284,10.284L14.408,14.408" style="fill:none;stroke-width:2px;stroke-linecap:round;"></path>
+            </g>
+        </svg>
+    </button>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+</section>
+
+
+          </div>
+        </div>
+    
+    </div>
+  </section>
+ 
+
+
+<footer class="footer">
+  <div class="content has-text-centered">
+      <ul class="footer-menu">
+          <li><a href="../../download">Download</a></li>
+          <li><a href="../../themes">Themes</a></li>
+          <li><a href="../../docs">Documentation</a></li>
+          <li><a href="https://github.com/galleriajs/galleria">Github</a></li>
+      </ul>
+  </div>
+</footer>
+
+
+<script src="../../_static/main.min.js"></script>
+
+</body>
+</html>
